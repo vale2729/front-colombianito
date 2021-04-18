@@ -13,6 +13,7 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     ContactenosComponent,
     QuienessomosComponent,
     RegistroComponent,
-    InicioComponent
+    InicioComponent,
+    TarjetasComponent
   ],
   imports: [
     BrowserModule,
