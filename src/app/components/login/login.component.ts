@@ -9,25 +9,28 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public variable : any = [];
-  email: string = '';
-  password: string = '';
 
-  constructor(private _loginservice: LoginService) { 
-    
-  }
+  user : string = '';
+  clave: string = '';
+  user1 : any = {};
+
+  constructor(private _loginservice: LoginService) {  }
 
   ngOnInit(): void {
-    this._loginservice.login().subscribe(console.log);
   }
 
-  // this._loginservice.login().subscribe(data => {
-  //     this.variable = data
-  //   });
-
   login() {
-    console.log(this.email);
-    console.log(this.password);
+
+    this.user1 = { usuario: this.user, clave: this.clave };
+
+    this._loginservice.login(this.user1).subscribe(data => {
+      console.log(data);
+      if (Object.keys(data).length > 0){
+        alert('El usuario existe');
+      }else{
+        alert('El usuario no existe');
+      }
+    });
   }
 
 

@@ -7,12 +7,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  ruta = (environment.api)+'usuario';
+  ruta = (environment.api)+'login';
 
   constructor(private http:HttpClient) { }
 
-  login(){
-    return this.http.get(this.ruta);
+  login(user:any){
+    return this.http.post(this.ruta, user);
   }
 
 }
