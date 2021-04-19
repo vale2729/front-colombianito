@@ -11,8 +11,8 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  login(){
-    return this.http.get(this.ruta);
+  getlogin(){
+    //return this.http.get(url '${this.ruta}.users');
   }
 
 }
