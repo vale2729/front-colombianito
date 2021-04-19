@@ -8,28 +8,26 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // public variable : any = [];
-  // constructor(private _loginservice: LoginService) { 
-    
-  // }
-
-  // ngOnInit(): void {
-  //   this._loginservice.login().subscribe(data => {
-  //     this.variable = data
-  //   });
-  // }
-
+  public variable : any = [];
   email: string = '';
   password: string = '';
 
-  constructor() {}
+  constructor(private _loginservice: LoginService) { 
+    
+  }
+
+  ngOnInit(): void {
+    this._loginservice.login().subscribe(console.log);
+  }
+
+  // this._loginservice.login().subscribe(data => {
+  //     this.variable = data
+  //   });
 
   login() {
     console.log(this.email);
     console.log(this.password);
   }
-
-  ngOnInit(): void {}
 
 
 }
