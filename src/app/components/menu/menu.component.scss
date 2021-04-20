@@ -1,0 +1,14 @@
+
+[class*="fondo"] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+}
+.fondo{
+    background: url("../../../assets/fondog1.jpg");
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+}
