@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   clave: string = '';
   user1 : any = {};
 
-  constructor(private _loginservice: LoginService) {  }
+  constructor(private _loginservice: LoginService, private ruta : Router) {  }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       if (Object.keys(data).length > 0){
         alert('El usuario existe');
+        this.ruta.navigate(['inicio']);
       }else{
         alert('El usuario no existe');
       }

@@ -11,6 +11,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
   {path:'', component : InicioComponent},
+  {path:'inicio', component : InicioComponent},
 	{path:'menu', component : MenuComponent},
   {path:'contactenos', component : ContactenosComponent},
   {path:'quienessomos', component : QuienessomosComponent},
