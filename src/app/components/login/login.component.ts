@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { LoginService } from 'src/app/services/login/login.service';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   clave: string = '';
   user1 : any = {};
 
-  constructor(private _loginservice: LoginService, private ruta : Router) {  }
+  constructor(private _loginservice: LoginService, private ruta : Router, private modalService: NgbModal) {  }
 
   ngOnInit(): void {
   }
@@ -30,7 +32,8 @@ export class LoginComponent implements OnInit {
         alert('El usuario existe');
         this.ruta.navigate(['inicio']);
       }else{
-        alert('El usuario no existe');
+        const modal = this.modalService.open(ModalComponent);
+        modal.componentInstance.name = 'El usuario no se encuentra registrado';
       }
     });
   }

@@ -12,7 +12,7 @@ input {
         color: rgb(255, 255, 255);
     }
     &:focus {
-        outline: 0 transparent solid;
+        border-collapse: collapse;
         ::-webkit-input-placeholder {
             color: rgba(0, 0, 0, 0.7);
         }
@@ -29,8 +29,8 @@ input {
     position: absolute;
     top: calc(25% - 55px);
     left: calc(40% - 30px);
-
-    height: 150px;
+    background : rgb(255, 255, 255);
+    height: 590px;
     width: 350px;
     padding: 10px;
     z-index: 2;
@@ -38,7 +38,7 @@ input {
 .login-text {
     //background: hsl(40,30,60);
     //border-bottom: .5rem solid white;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
     margin: 0 auto;
     max-width: 50%;
@@ -54,7 +54,7 @@ input {
     background: rgba(236, 230, 230, 0.788);
     border: 0 solid;
     border-bottom: 1px solid rgba(white, 0.5);
-    color: rgb(255, 253, 253);
+    color: rgb(0, 0, 0);
     display: block;
     margin: 1rem;
     padding: 0.5rem;
@@ -67,27 +67,9 @@ input {
     }
 }
 
-.login-forgot-pass {
-    //border-bottom: 1px solid white;
-    bottom: 0;
-    color: white;
-    cursor: pointer;
-    display: block;
-    font-size: 75%;
-    left: 0;
-    opacity: 0.6;
-    padding: 0.5rem;
-    position: absolute;
-    text-align: center;
-    //text-decoration: none;
-    width: 100%;
-    &:hover {
-        opacity: 1;
-    }
-}
 .login-submit {
     background: rgb(13, 212, 13);
-    color: white;
+    color: rgb(0, 0, 0);
     display: block;
     margin: 1rem auto;
 

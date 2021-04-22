@@ -1,17 +1,26 @@
-
-
-<form class="login-form">
-    <p class="login-text">
+<form class="login-form rounded was-validated">
+    <h3 class="text-center pt-4">
         Registro
-    </p>
-    <input type="email" class="forms rounded" autofocus="true" required="true" placeholder="Cedula"/>
-    <input type="email" class="forms rounded" required="true" placeholder="Correo Electronico" />
-    <input type="password" class="forms rounded" required="true" placeholder="Contraseña" />
-    <input type="nombre" class="forms rounded" required="true" placeholder="Nombre" />
-    <input type="apellido" class="forms rounded" required="true" placeholder="Apellido" />
-    <input type="telefono" class="forms rounded" required="true" placeholder="Telefono" />
-    <input type="dirreccion" class="forms rounded" required="true" placeholder="Direccion" />
-
-    <button class="btn btn-success login-btn login-submit">Registarse</button>
+    </h3>
+    <div class="pl-3">
+        <input type="text" class="forms rounded is-invalid form-control" autofocus="true" required="true" placeholder="Cedula" 
+        [(ngModel)]="cedula" name="cedula"  />
+        <input type="email" class="forms rounded is-invalid form-control" required="true" placeholder="Usuario"
+        [(ngModel)]="usuario" name="usuario"  />
+        <input type="password" class="forms rounded is-invalid form-control" required="true" placeholder="Contraseña"
+        [(ngModel)]="clave" name="clave"  />
+        <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre"
+        [(ngModel)]="nombre" name="nombre"  />
+        <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Apellido"
+        [(ngModel)]="apellido" name="apellido"  />
+        <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Telefono"
+        [(ngModel)]="telefono" name="telefono"  />
+        <input type="email" class="forms rounded is-invalid form-control" required="true" placeholder="Correo Electronico"
+        [(ngModel)]="correo" name="correo"  />
+        <input type="text" class="forms rounded is-invalid form-control" ngModel required placeholder="Direccion"
+        [(ngModel)]="direccion" name="direccion"  />
+    </div>
+    <button class="btn btn-success login-btn login-submit" (click)="insertar()">Registrarse</button>
 </form>
+
 <div class="underlay-photo"></div>

@@ -34,8 +34,8 @@ a:hover:after {
     transition-property: color;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
-  }
-  .hvr-rectangle-out:before {
+}
+.hvr-rectangle-out:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -53,13 +53,32 @@ a:hover:after {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     color: rgb(255, 255, 255);
-  }
-  .hvr-rectangle-out:hover, .hvr-rectangle-out:focus, .hvr-rectangle-out:active {
+}
+.hvr-rectangle-out:hover,
+.hvr-rectangle-out:focus,
+.hvr-rectangle-out:active {
     color: white;
-  }
-  .hvr-rectangle-out:hover:before, .hvr-rectangle-out:focus:before, .hvr-rectangle-out:active:before {
+}
+.hvr-rectangle-out:hover:before,
+.hvr-rectangle-out:focus:before,
+.hvr-rectangle-out:active:before {
     -webkit-transform: scale(1);
     transform: scale(1);
-  }
+}
 
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
 
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}

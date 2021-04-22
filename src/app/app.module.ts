@@ -14,6 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
     QuienessomosComponent,
     RegistroComponent,
     InicioComponent,
-    TarjetasComponent
+    TarjetasComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
