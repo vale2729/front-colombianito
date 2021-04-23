@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
 
 
 
@@ -105,7 +106,10 @@ export class CiudadComponent implements OnInit {
   collectionSize = COUNTRIES.length;
   countries: Country[] = [];
 
-  constructor() {
+  ciudades : any = [];
+  item : number = 0;
+
+  constructor(private _ciudadService : CiudadesService) {
     this.refreshCountries();
   }
 
@@ -116,6 +120,10 @@ export class CiudadComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._ciudadService.getCiudades().subscribe(data => {
+      this.ciudades = data;
+      console.log(this.ciudades);
+    })
   }
 
 }

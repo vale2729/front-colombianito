@@ -15,18 +15,15 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { ModalComponent } from './components/modal/modal.component';
-<<<<<<< Updated upstream
 import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { SucursalComponent } from './components/sucursal/sucursal.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
-=======
 import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import { ChComponent } from './components/ch/ch.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { AdminComponent } from './components/admin/admin.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -40,18 +37,15 @@ import { AdminComponent } from './components/admin/admin.component';
     InicioComponent,
     TarjetasComponent,
     ModalComponent,
-<<<<<<< Updated upstream
     CiudadComponent,
     SucursalComponent,
     CategoriasComponent,
     ProductosComponent,
-    OrdenesComponent
-=======
+    OrdenesComponent,
     NavAdminComponent,
     ChComponent,
     LoginAdminComponent,
     AdminComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

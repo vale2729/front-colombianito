@@ -14,19 +14,6 @@ import { CiudadComponent } from './components/ciudad/ciudad.component';
 
 
 const routes: Routes = [
-<<<<<<< Updated upstream
-  {path:'', component : InicioComponent},
-  {path:'inicio', component : InicioComponent},
-	{path:'menu', component : MenuComponent},
-  {path:'contactenos', component : ContactenosComponent},
-  {path:'quienessomos', component : QuienessomosComponent},
-  {path:'login', component : LoginComponent},
-  {path:'registro', component : RegistroComponent},
-  {path:'ciudades', component : CiudadComponent}
-];
-
-
-=======
 
   {
     path: '', component: ChComponent, children: [
@@ -35,7 +22,8 @@ const routes: Routes = [
       { path: 'ch/contactenos', component: ContactenosComponent },
       { path: 'ch/quienessomos', component: QuienessomosComponent },
       { path: 'ch/login', component: LoginComponent },
-      { path: 'ch/registro', component: RegistroComponent }
+      { path: 'ch/registro', component: RegistroComponent },
+        {path:'ch/ciudades', component : CiudadComponent}
     ]
   },
 
@@ -54,7 +42,6 @@ const routes: Routes = [
 //   { path: '**', redirectTo: '/home'}
 // ];
 
->>>>>>> Stashed changes
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
