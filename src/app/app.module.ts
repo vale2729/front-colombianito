@@ -15,6 +15,11 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CiudadComponent } from './components/ciudad/ciudad.component';
+import { SucursalComponent } from './components/sucursal/sucursal.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { OrdenesComponent } from './components/ordenes/ordenes.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { ModalComponent } from './components/modal/modal.component';
     RegistroComponent,
     InicioComponent,
     TarjetasComponent,
-    ModalComponent
+    ModalComponent,
+    CiudadComponent,
+    SucursalComponent,
+    CategoriasComponent,
+    ProductosComponent,
+    OrdenesComponent
   ],
   imports: [
     BrowserModule,

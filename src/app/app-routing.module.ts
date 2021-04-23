@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { RegistroComponent } from './components/registro/registro.component';
-
+import { CiudadComponent } from './components/ciudad/ciudad.component';
 
 
 const routes: Routes = [
@@ -16,8 +16,11 @@ const routes: Routes = [
   {path:'contactenos', component : ContactenosComponent},
   {path:'quienessomos', component : QuienessomosComponent},
   {path:'login', component : LoginComponent},
-  {path:'registro', component : RegistroComponent}
+  {path:'registro', component : RegistroComponent},
+  {path:'ciudades', component : CiudadComponent}
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
