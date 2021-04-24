@@ -7,15 +7,21 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.component';
+
 import { SucursalComponent } from './components/sucursal/sucursal.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
+
+import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
+import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
+import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
+
+
 
 const routes: Routes = [
 
@@ -34,24 +40,25 @@ const routes: Routes = [
   {
     path: 'admin', component: LayaoutadminComponent, children: [
       { path: '', component: LoginAdminComponent},
+
       { path: 'inicioadmin', component: AdminComponent, children: [
         { path: 'ciudades', component: CiudadComponent},
         { path: 'Sucursales', component: SucursalComponent},
         { path: 'productos', component: ProductosComponent},
         { path: 'categorias', component: CategoriasComponent},
-        { path: 'ordenes', component: OrdenesComponent}
+        { path: 'ordenes', component: OrdenesComponent},
+    ]
+  },
+
+  {
+    path: 'sucursal', component: LayaoutsucursalComponent, children: [
+      { path: '', component: LoginSucursalComponent},
+      { path: 'inicio-sucursal', component: InicioSucursalComponent, children: [
+        { path: 'ciudades', component: CiudadComponent}
       ]}
     ]
   }
 ];
-
-
-// const appRoutes: Routes = [
-//   { path: 'home', component: HomeComponent, canActivate: [ AuthorizatedGuard ] },
-//   { path: 'login', component: LoginComponent },
-//   { path: '', redirectTo: '/home', pathMatch: 'full' },
-//   { path: '**', redirectTo: '/home'}
-// ];
 
 
 @NgModule({

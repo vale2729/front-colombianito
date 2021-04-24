@@ -25,6 +25,10 @@ import { ChComponent } from './components/ch/ch.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.component';
+import { NavSucursalComponent } from './components/nav-sucursal/nav-sucursal.component';
+import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
+import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
+import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.co
     ChComponent,
     LoginAdminComponent,
     AdminComponent,
-    LayaoutadminComponent
+    LayaoutadminComponent,
+    NavSucursalComponent,
+    LoginSucursalComponent,
+    LayaoutsucursalComponent,
+    InicioSucursalComponent
   ],
   imports: [
     BrowserModule,
