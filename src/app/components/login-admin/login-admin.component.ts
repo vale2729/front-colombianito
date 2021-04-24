@@ -14,7 +14,7 @@ export class LoginAdminComponent implements OnInit {
   }
 
   loginadmin(){
-    this.ruta.navigate(['inicioadmin']);
+    this.ruta.navigate(['admin/inicioadmin']);
   }
 
 }

@@ -11,6 +11,7 @@ import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CiudadComponent } from './components/ciudad/ciudad.component';
+import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.component';
 
 
 const routes: Routes = [
@@ -28,8 +29,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'admin', component: LoginAdminComponent, children: [
-      { path: 'inicioadmin', component: AdminComponent}
+    path: 'admin', component: LayaoutadminComponent, children: [
+      { path: '', component: LoginAdminComponent},
+      { path: 'inicioadmin', component: AdminComponent, children: [
+        { path: 'ciudades', component: CiudadComponent}
+      ]}
     ]
   }
 ];

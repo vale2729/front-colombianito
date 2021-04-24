@@ -24,6 +24,7 @@ import { NavAdminComponent } from './components/nav-admin/nav-admin.component';
 import { ChComponent } from './components/ch/ch.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AdminComponent } from './components/admin/admin.component';
     NavAdminComponent,
     ChComponent,
     LoginAdminComponent,
-    AdminComponent
+    AdminComponent,
+    LayaoutadminComponent
   ],
   imports: [
     BrowserModule,
