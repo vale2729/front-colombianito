@@ -12,7 +12,10 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 import { RegistroComponent } from './components/registro/registro.component';
 import { CiudadComponent } from './components/ciudad/ciudad.component';
 import { LayaoutadminComponent } from './components/layaoutadmin/layaoutadmin.component';
-
+import { SucursalComponent } from './components/sucursal/sucursal.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { OrdenesComponent } from './components/ordenes/ordenes.component';
 
 const routes: Routes = [
 
@@ -32,7 +35,11 @@ const routes: Routes = [
     path: 'admin', component: LayaoutadminComponent, children: [
       { path: '', component: LoginAdminComponent},
       { path: 'inicioadmin', component: AdminComponent, children: [
-        { path: 'ciudades', component: CiudadComponent}
+        { path: 'ciudades', component: CiudadComponent},
+        { path: 'Sucursales', component: SucursalComponent},
+        { path: 'productos', component: ProductosComponent},
+        { path: 'categorias', component: CategoriasComponent},
+        { path: 'ordenes', component: OrdenesComponent}
       ]}
     ]
   }
