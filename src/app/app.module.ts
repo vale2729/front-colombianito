@@ -31,6 +31,7 @@ import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsu
 import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
 import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
 import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RegistroSucursalesComponent } from './components/registro-sucursales/re
     InicioSucursalComponent,
     RegistroAdminComponent,
     RegistroSucursalesComponent
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

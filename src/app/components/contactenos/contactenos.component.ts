@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 
 @Component({
   selector: 'app-contactenos',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactenos.component.scss']
 })
 export class ContactenosComponent implements OnInit {
-
-  constructor() { }
+  sucursales : any;
+  constructor(private _sucursalService: SucursalService) { }
 
   ngOnInit(): void {
+    this._sucursalService.getSucursales().subscribe(data => {
+      this.sucursales = data
+    })
   }
 
 }
