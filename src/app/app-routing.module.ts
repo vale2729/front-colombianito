@@ -20,6 +20,7 @@ import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
 import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
 import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 
@@ -33,29 +34,34 @@ const routes: Routes = [
       { path: 'ch/quienessomos', component: QuienessomosComponent },
       { path: 'ch/login', component: LoginComponent },
       { path: 'ch/registro', component: RegistroComponent },
-        {path:'ch/ciudades', component : CiudadComponent}
+      { path: 'ch/menu/carrito', component: CarritoComponent },
     ]
   },
 
   {
     path: 'admin', component: LayaoutadminComponent, children: [
-      { path: '', component: LoginAdminComponent},
+      { path: '', component: LoginAdminComponent },
 
-      { path: 'inicioadmin', component: AdminComponent, children: [
-        { path: 'ciudades', component: CiudadComponent},
-        { path: 'Sucursales', component: SucursalComponent},
-        { path: 'productos', component: ProductosComponent},
-        { path: 'categorias', component: CategoriasComponent},
-        { path: 'ordenes', component: OrdenesComponent},
+      {
+        path: 'inicio-admin', component: AdminComponent, children: [
+          { path: 'ciudades', component: CiudadComponent },
+          { path: 'Sucursales', component: SucursalComponent },
+          { path: 'productos', component: ProductosComponent },
+          { path: 'categorias', component: CategoriasComponent },
+          { path: 'ordenes', component: OrdenesComponent },
+        ]
+      }
     ]
   },
 
   {
     path: 'sucursal', component: LayaoutsucursalComponent, children: [
-      { path: '', component: LoginSucursalComponent},
-      { path: 'inicio-sucursal', component: InicioSucursalComponent, children: [
-        { path: 'ciudades', component: CiudadComponent}
-      ]}
+      { path: '', component: LoginSucursalComponent },
+      {
+        path: 'inicio-sucursal', component: InicioSucursalComponent, children: [
+          { path: 'ciudades', component: CiudadComponent }
+        ]
+      }
     ]
   }
 ];

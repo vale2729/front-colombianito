@@ -1,0 +1,72 @@
+
+<div class="modal-header">
+    <h4 class="modal-title">Colombiano Hambriento</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="assets/burger.jpg"></div>
+                        <div class="col">
+                            <div class="row">{{nombre}}</div>
+                        </div>
+                        
+                        <div class="col">$ {{precio}}<span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                        <div class="col">
+                            <div class="row text-muted">Shirt</div>
+                            <div class="row">Cotton T-shirt</div>
+                        </div>
+                        
+                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                        <div class="col">
+                            <div class="row text-muted">Shirt</div>
+                            <div class="row">Cotton T-shirt</div>
+                        </div>
+                        
+                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 summary">
+                <div>
+                    <h5><b>Resumen</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Productos 3</div>
+                    <div class="col text-right">&euro; 132.00</div>
+                </div>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL</div>
+                    <div class="col text-right">&euro; 137.00</div>
+                </div> <button class="btn">Comprar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                        <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                      </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>
