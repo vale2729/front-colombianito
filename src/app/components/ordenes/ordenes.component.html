@@ -1,4 +1,42 @@
 <div class="contents contenedorordenes">
-    <p>ordenes works!</p>
+    <p>Registro de Ordenes</p>
+    <table class="table table-bordered tabla">
+        <thead>
+            <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Dirreción</th>
+                <th scope="col">Pago</th>
+                <th scope='col'>Completado</th>
+                <th scope='col'>Productos</th>
+                <th scope='col'>Adiciones</th>
+                <th scope='col'>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let orden of ordenes">
+                <th scope="row">{{orden.cliente}}</th>
+                <td>{{ orden.direccion }}</td>
+                <td>{{ orden.pago}}</td>
+                <td>{{ orden.completado}}</td>
+                <td>{{ orden.productos}}</td>
+                <td>{{ orden.adiciones}}</td>
+                <td>
+                    <a class="btn btn-success boton"> Agregar</a>
+                    <a class="btn btn-warning boton"> Editar</a>
+                    <a class="btn btn-danger boton"> Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshOrdenes()">
+        </ngb-pagination>
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshOrdenes()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div>
 </div>
 

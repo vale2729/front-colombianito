@@ -1,6 +1,6 @@
-import { Component,Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { CategoriasService } from 'src/app/services/categorias/categorias.service';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 interface Country {
   id?: number;
@@ -91,37 +91,37 @@ const COUNTRIES: Country[] = [
   }
 ];
 
-@Component({
-  selector: 'app-categorias',
-  templateUrl: './categorias.component.html',
-  styleUrls: ['./categorias.component.scss']
-})
-export class CategoriasComponent implements OnInit {
 
-  page = 1;
+@Component({
+  selector: 'app-registro-admin',
+  templateUrl: './registro-admin.component.html',
+  styleUrls: ['./registro-admin.component.scss']
+})
+export class RegistroAdminComponent implements OnInit {
+ 
+page = 1;
   pageSize = 4;
   collectionSize = COUNTRIES.length;
   countries: Country[] = [];
 
-  categorias : any = [];
+  usuarios : any = [];
   item : number = 0;
 
-  constructor(private _categoriaService : CategoriasService ) {
-    this.refreshCategorias();
+  constructor(private _usuariosService : UsuariosService) {
+    this.refreshUsuarios();
   }
 
-  refreshCategorias() {
+  refreshUsuarios() {
     this.countries = COUNTRIES
       .map((country, i) => ({id: i + 1, ...country}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
   ngOnInit(): void {
-    this._categoriaService.getCategorias().subscribe(data => {
-      this.categorias = data;
-      console.log(this.categorias);
+    this._usuariosService.getRegistroadmin().subscribe(data => {
+      this.usuarios  = data;
+      console.log(this.usuarios );
     })
   }
 
 }
-

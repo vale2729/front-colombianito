@@ -20,7 +20,8 @@ import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
 import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
 import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
-
+import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
+import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
 
 
 const routes: Routes = [
@@ -33,23 +34,24 @@ const routes: Routes = [
       { path: 'ch/quienessomos', component: QuienessomosComponent },
       { path: 'ch/login', component: LoginComponent },
       { path: 'ch/registro', component: RegistroComponent },
-        {path:'ch/ciudades', component : CiudadComponent}
+      {path:'ch/ciudades', component : CiudadComponent}
     ]
   },
 
   {
     path: 'admin', component: LayaoutadminComponent, children: [
       { path: '', component: LoginAdminComponent},
-
-      { path: 'inicioadmin', component: AdminComponent, children: [
+      { path: 'inicio-admin', component: AdminComponent, children: [
         { path: 'ciudades', component: CiudadComponent},
         { path: 'Sucursales', component: SucursalComponent},
         { path: 'productos', component: ProductosComponent},
         { path: 'categorias', component: CategoriasComponent},
         { path: 'ordenes', component: OrdenesComponent},
+        { path: 'registroAdmin', component: RegistroAdminComponent},
+        { path: 'registroSucursales', component: RegistroSucursalesComponent}
+      ]},
     ]
   },
-
   {
     path: 'sucursal', component: LayaoutsucursalComponent, children: [
       { path: '', component: LoginSucursalComponent},
@@ -59,6 +61,7 @@ const routes: Routes = [
     ]
   }
 ];
+
 
 
 @NgModule({

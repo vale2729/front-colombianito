@@ -1,0 +1,46 @@
+.container{
+    margin-top: 50px;
+    margin: center;
+}
+.imgh{
+    width:850px;
+    height:500px;
+    position:center;
+    margin-left: 50px;
+}
+.tex1{
+    text-align:justify;
+    color: white;
+}
+.tex2{
+    text-align:justify;
+}
+.login-submit {
+    background: rgb(13, 212, 13);
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 1rem auto;
+
+    transition: 250ms background ease-in;
+    &:hover,
+    &:focus {
+        background: rgb(152, 230, 159);
+        color: black;
+        transition: 250ms background ease-in;
+    }
+}
+
+[class*="underlay"] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+}
+.underlay-photo {
+    background: url("../../../assets/fondo.jpg");
+    background-size: cover;
+    filter: grayscale(30%);
+    z-index: -1;
+    filter: blur(2px);
+}

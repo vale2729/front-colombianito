@@ -22,6 +22,7 @@ export class LoginAdminComponent implements OnInit {
 
   loginadmin(){
     this.user1 = { usuario: this.user, clave: this.clave };
+    console.log(this.user1);
     this._loginservice.loginAdmin(this.user1).subscribe(data => {
       console.log(data);
       if (Object.keys(data).length > 0){

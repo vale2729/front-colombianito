@@ -29,6 +29,8 @@ import { NavSucursalComponent } from './components/nav-sucursal/nav-sucursal.com
 import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
 import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
 import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
+import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
+import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-suc
     NavSucursalComponent,
     LoginSucursalComponent,
     LayaoutsucursalComponent,
-    InicioSucursalComponent
+    InicioSucursalComponent,
+    RegistroAdminComponent,
+    RegistroSucursalesComponent
   ],
   imports: [
     BrowserModule,

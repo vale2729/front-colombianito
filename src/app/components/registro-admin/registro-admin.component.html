@@ -1,0 +1,40 @@
+<div class="contents contenedor">
+    <p>Registro de administradores</p>
+    <table class="table table-bordered tabla">
+        <thead>
+            <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Clave</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Telefono:</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Direccion:</th>
+                <th scope='col'> Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ciudad of usuarios">
+                <th scope="row">{{ciudad.codigo}}</th>
+                <td>{{ ciudad.ciudad }}</td>
+                <td>{{ ciudad.departamento}}</td>
+                <td>
+                    <a class="btn btn-success boton"> Agregar</a>
+                    <a class="btn btn-warning boton"> Editar</a>
+                    <a class="btn btn-danger boton"> Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshUsuarios()">
+        </ngb-pagination>
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshUsuarios()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div>
+</div>
