@@ -1,5 +1,12 @@
 <div class="contents contenedorcategorias">
-    <p>Registro de Categorias</p>
+    <div class="row">
+        <div class="col-6">
+            <h3><b>Categorias</b></h3>
+        </div>
+        <div class="col-6 text-right pb-3">
+            <a class="btn btn-success botonproduct mb-1" (click)="registroCategoria()"> Agregar categoria</a><br>
+        </div>
+    </div>
     <table class="table table-bordered tabla">
         <thead>
             <tr>
@@ -13,7 +20,6 @@
                 <th scope="row">{{catego.codigo}}</th>
                 <td>{{ catego.nombre}}</td>
                 <td>
-                    <a class="btn btn-success boton"> Agregar</a>
                     <a class="btn btn-warning boton"> Editar</a>
                     <a class="btn btn-danger boton"> Eliminar</a>
                 </td>
@@ -25,9 +31,9 @@
             (pageChange)="refreshCategorias()">
         </ngb-pagination>
         <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCategorias()">
-            <option [ngValue]="2">2 items por pagina</option>
-            <option [ngValue]="4">4 items por pagina</option>
-            <option [ngValue]="6">6 items por pagina</option>
+            <option [ngValue]="2">2 items por página</option>
+            <option [ngValue]="4">4 items por página</option>
+            <option [ngValue]="6">6 items por página</option>
         </select>
     </div>
 </div>

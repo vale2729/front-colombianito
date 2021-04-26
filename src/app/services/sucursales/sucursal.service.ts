@@ -11,10 +11,16 @@ import { Sucursales } from 'src/app/interfaces/sucursales';
 })
 export class SucursalService {
 
-  ruta = (environment.api)+'sucursal1';
+  ruta = (environment.api)+'getSucursales';
+  rutaSetSucursal = (environment.api)+'setSucursal';
 
   constructor(private http:HttpClient) { }
+
   getSucursales() : Observable<Sucursales>{
     return this.http.get<Sucursales>(this.ruta);
+  }
+
+  setSucursal(sucursal: any) {
+    return this.http.post(this.rutaSetSucursal, sucursal);
   }
 }

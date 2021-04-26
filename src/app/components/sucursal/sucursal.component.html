@@ -1,6 +1,13 @@
 <p>sucursal works!</p>
 <div class="contents contenedorSucursal">
-    <p>Registro de Sucursales</p>
+    <div class="row">
+        <div class="col-6">
+            <h3><b>Sucursales</b></h3>
+        </div>
+        <div class="col-6 text-right pb-3">
+            <a class="btn btn-success botonproduct mb-1" (click)="registroSucursal()"> Agregar sucursal</a><br>
+        </div>
+    </div>
     <table class="table table-bordered tabla">
         <thead>
             <tr>
@@ -22,7 +29,6 @@
                 <td>{{ sucursal.telefono }}</td>
                 <td>{{ sucursal.celular}}</td>
                 <td>
-                    <a class="btn btn-success botonSucursal"> Agregar</a>
                     <a class="btn btn-warning botonSucursal"> Editar</a>
                     <a class="btn btn-danger botonSucursal"> Eliminar</a>
                 </td>
@@ -34,9 +40,9 @@
             (pageChange)=" refreshSucursales()">
         </ngb-pagination>
         <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)=" refreshSucursales()">
-            <option [ngValue]="2">2 items por pagina</option>
-            <option [ngValue]="4">4 items por pagina</option>
-            <option [ngValue]="6">6 items por pagina</option>
+            <option [ngValue]="2">2 items por página</option>
+            <option [ngValue]="4">4 items por página</option>
+            <option [ngValue]="6">6 items por página</option>
         </select>
     </div>
 </div>

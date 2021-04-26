@@ -21,6 +21,8 @@ import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-suc
 import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
 import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
+import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
 
 const routes: Routes = [
 
@@ -32,23 +34,24 @@ const routes: Routes = [
       { path: 'ch/quienessomos', component: QuienessomosComponent },
       { path: 'ch/login', component: LoginComponent },
       { path: 'ch/registro', component: RegistroComponent },
-      {path:'ch/ciudades', component : CiudadComponent}
+      { path: 'ch/ciudades', component: CiudadComponent },
       { path: 'ch/menu/carrito', component: CarritoComponent },
     ]
   },
 
   {
     path: 'admin', component: LayaoutadminComponent, children: [
-      { path: '', component: LoginAdminComponent},
-      { path: 'inicio-admin', component: AdminComponent, children: [
-        { path: 'ciudades', component: CiudadComponent},
-        { path: 'Sucursales', component: SucursalComponent},
-        { path: 'productos', component: ProductosComponent},
-        { path: 'categorias', component: CategoriasComponent},
-        { path: 'ordenes', component: OrdenesComponent},
-        { path: 'registroAdmin', component: RegistroAdminComponent},
-        { path: 'registroSucursales', component: RegistroSucursalesComponent}
-      ]},
+      { path: '', component: LoginAdminComponent },
+      {
+        path: 'inicio-admin', component: AdminComponent, children: [
+          { path: 'ciudades', component: CiudadComponent },
+          { path: 'Sucursales', component: SucursalComponent },
+          { path: 'productos', component: ProductosComponent },
+          { path: 'categorias', component: CategoriasComponent },
+          { path: 'registroAdmin', component: UsuariosAdminComponent },
+          { path: 'registroSucursales', component: UsuariosSucursalComponent }
+        ]
+      },
     ]
   },
   {
@@ -56,7 +59,8 @@ const routes: Routes = [
       { path: '', component: LoginSucursalComponent },
       {
         path: 'inicio-sucursal', component: InicioSucursalComponent, children: [
-          { path: 'ciudades', component: CiudadComponent }
+          { path: 'ciudades', component: CiudadComponent },
+          { path: 'ordenes', component: OrdenesComponent },
         ]
       }
     ]

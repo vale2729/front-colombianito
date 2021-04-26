@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit {
     if(Object.keys(this.user.cedula).length > 0 && Object.keys(this.user.usuario).length > 0 && Object.keys(this.user.clave).length
       && Object.keys(this.user.nombre).length && Object.keys(this.user.apellidos).length && Object.keys(this.user.telefono).length
       && Object.keys(this.user.correo).length && Object.keys(this.user.direccion).length){
-      this._userservice.insertar(this.user).subscribe(data => {
+      this._userservice.insertarUsuario(this.user).subscribe(data => {
         this.user = data;
         console.log(this.user);
         console.log(data);

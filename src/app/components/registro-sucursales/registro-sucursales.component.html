@@ -1,3 +1,27 @@
-<div class="contents contenedor">
-    <p>registro-sucursales works!</p>
+<div class="modal-header">
+  <h4 class="modal-title">Colombiano Hambriento</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="m-4">
+    <form class="login-form rounded was-validated">
+      <p>Ingresar los datos:</p>
+        <input type="text" class="forms rounded is-invalid form-control" autofocus="true" required="true"
+          placeholder="Codigo" [(ngModel)]="codigo" name="codigo" /> <br>
+          <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre de la sucursal"
+          [(ngModel)]="nombre" name="nombre" /><br>
+        <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Ciudad"
+          [(ngModel)]="ciudad" name="ciudad" /><br>
+          <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Dirección"
+          [(ngModel)]="direccion" name="direccion" /><br>
+          <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Teléfono"
+          [(ngModel)]="telefono" name="telefono" /><br>
+          <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Celular"
+          [(ngModel)]="celular" name="celular" /><br>
+
+      <button class="btn btn-success login-btn login-submit" (click)="insertar()">Registrar</button>
+    </form>
+  </div>
 </div>

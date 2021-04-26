@@ -13,29 +13,31 @@
         <div class="row">
           <div class="col-6">
             <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Usuario"
-          [(ngModel)]="usuario" name="usuario" /><br>
+              [(ngModel)]="usuario" name="usuario" /><br>
           </div>
           <div class="col-6">
             <input type="password" class="forms rounded is-invalid form-control" required="true" placeholder="Contraseña"
-          [(ngModel)]="clave" name="clave" /><br>
+              [(ngModel)]="clave" name="clave" /><br>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre"
-          [(ngModel)]="nombre" name="nombre" /><br>
+              [(ngModel)]="nombre" name="nombre" /><br>
           </div>
           <div class="col-6">
             <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Apellidos"
-          [(ngModel)]="apellido" name="apellido" /><br>
+              [(ngModel)]="apellido" name="apellido" /><br>
           </div>
-        </div>    
+        </div>
         <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Telefono"
           [(ngModel)]="telefono" name="telefono" /><br>
         <input type="email" class="forms rounded is-invalid form-control" required="true" placeholder="Correo Electronico"
           [(ngModel)]="correo" name="correo" /><br>
         <input type="text" class="forms rounded is-invalid form-control" ngModel required placeholder="Direccion"
           [(ngModel)]="direccion" name="direccion" /><br>
+        <input type="text" class="forms rounded is-invalid form-control" ngModel required placeholder="Nombre sucursal"
+          [(ngModel)]="sucursal" name="sucursal" /><br>
   
         <button class="btn btn-success login-btn login-submit" (click)="insertar()">Registrar</button>
       </form>

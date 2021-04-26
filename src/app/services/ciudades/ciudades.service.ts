@@ -9,12 +9,17 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class CiudadesService {
 
-  ruta = (environment.api)+'ciudades';
+  ruta = (environment.api)+'getCiudades';
+  rutaSetCiudad = (environment.api)+'setCiudad';
 
   constructor(private http:HttpClient) { }
 
   getCiudades() : Observable<Ciudad>{
     return this.http.get<Ciudad>(this.ruta);
+  }
+
+  setCiudad(ciudad: any) {
+    return this.http.post(this.rutaSetCiudad, ciudad);
   }
 
 }

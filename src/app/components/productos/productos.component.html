@@ -1,5 +1,13 @@
 <div class="contents contenedorproduct">
-    <p>Registro de productos</p>
+    <div class="row">
+        <div class="col-6">
+            <h3><b>Productos</b></h3>
+        </div>
+        <div class="col-6 text-right pb-3">
+            <a class="btn btn-success botonproduct mb-1"> Agregar producto</a><br>
+        </div>
+    </div>
+    
     <table class="table table-bordered tabla">
         <thead>
             <tr>
@@ -19,10 +27,8 @@
                 <td>{{ producto.nombre}}</td>
                 <td>{{ producto.descripcion}}</td>
                 <td><img src="{{producto.img}}" class="rounded" alt="" width="150px" height="100px"/></td>
-                <td><img src="{{producto.img}}" class="card-img-top hvr-grow" alt="..."></td>
                 <td>{{ producto.activo}}</td>
                 <td>
-                    <a class="btn btn-success botonproduct mb-1"> Agregar</a><br>
                     <a class="btn btn-warning botonproduct mb-1"> Editar</a><br>
                     <a class="btn btn-danger botonproduct"> Eliminar</a>
                 </td>
@@ -34,9 +40,9 @@
             (pageChange)="refreshProductos()">
         </ngb-pagination>
         <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshProductos()">
-            <option [ngValue]="2">2 items por pagina</option>
-            <option [ngValue]="4">4 items por pagina</option>
-            <option [ngValue]="6">6 items por pagina</option>
+            <option [ngValue]="2">2 items por página</option>
+            <option [ngValue]="4">4 items por página</option>
+            <option [ngValue]="6">6 items por página</option>
         </select>
     </div>
 </div>

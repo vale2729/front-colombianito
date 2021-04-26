@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProductosService {
 
-  ruta = (environment.api)+'producto';
+  ruta = (environment.api)+'getProductos';
 
   constructor(private http:HttpClient) { }
 

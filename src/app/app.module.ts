@@ -32,6 +32,11 @@ import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-suc
 import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
 import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
+import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
+import { RegistroCategoriaComponent } from './components/registro-categoria/registro-categoria.component';
+import { RegistroCiudadesComponent } from './components/registro-ciudades/registro-ciudades.component';
+import { RegistroUserSucursalComponent } from './components/registro-user-sucursal/registro-user-sucursal.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +65,13 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     LayaoutsucursalComponent,
     InicioSucursalComponent,
     RegistroAdminComponent,
-    RegistroSucursalesComponent
-    CarritoComponent
+    RegistroSucursalesComponent,
+    CarritoComponent,
+    UsuariosAdminComponent,
+    UsuariosSucursalComponent,
+    RegistroCategoriaComponent,
+    RegistroCiudadesComponent,
+    RegistroUserSucursalComponent,
   ],
   imports: [
     BrowserModule,
