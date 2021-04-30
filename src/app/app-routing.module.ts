@@ -23,6 +23,7 @@ import { RegistroSucursalesComponent } from './components/registro-sucursales/re
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
 import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: 'ch/registro', component: RegistroComponent },
       { path: 'ch/ciudades', component: CiudadComponent },
       { path: 'ch/menu/carrito', component: CarritoComponent },
+      { path: 'ch/menu/pago', component: PagoComponent},
     ]
   },
 

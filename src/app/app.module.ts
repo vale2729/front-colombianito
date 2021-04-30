@@ -37,6 +37,7 @@ import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuari
 import { RegistroCategoriaComponent } from './components/registro-categoria/registro-categoria.component';
 import { RegistroCiudadesComponent } from './components/registro-ciudades/registro-ciudades.component';
 import { RegistroUserSucursalComponent } from './components/registro-user-sucursal/registro-user-sucursal.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { RegistroUserSucursalComponent } from './components/registro-user-sucurs
     RegistroCategoriaComponent,
     RegistroCiudadesComponent,
     RegistroUserSucursalComponent,
+    PagoComponent,
   ],
   imports: [
     BrowserModule,
