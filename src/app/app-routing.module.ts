@@ -24,6 +24,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
 import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { ModificadoresComponent } from './components/modificadores/modificadores.component';
 
 const routes: Routes = [
 
@@ -48,8 +49,9 @@ const routes: Routes = [
         path: 'inicio-admin', component: AdminComponent, children: [
           { path: 'ciudades', component: CiudadComponent },
           { path: 'Sucursales', component: SucursalComponent },
-          { path: 'productos', component: ProductosComponent },
           { path: 'categorias', component: CategoriasComponent },
+          { path: 'productos', component: ProductosComponent },
+          { path: 'modificadores', component: ModificadoresComponent },
           { path: 'registroAdmin', component: UsuariosAdminComponent },
           { path: 'registroSucursales', component: UsuariosSucursalComponent }
         ]

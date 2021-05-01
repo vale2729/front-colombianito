@@ -26,7 +26,6 @@ export class LoginSucursalComponent implements OnInit {
     this._loginservice.loginSucursal(this.user1).subscribe(data => {
       console.log(data);
       if (Object.keys(data).length > 0){
-        alert('El usuario existe');
         this.ruta.navigate(['sucursal/inicio-sucursal']);
       }else{
         const modal = this.modalService.open(ModalComponent);

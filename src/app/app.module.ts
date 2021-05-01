@@ -38,6 +38,8 @@ import { RegistroCategoriaComponent } from './components/registro-categoria/regi
 import { RegistroCiudadesComponent } from './components/registro-ciudades/registro-ciudades.component';
 import { RegistroUserSucursalComponent } from './components/registro-user-sucursal/registro-user-sucursal.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { ModificadoresComponent } from './components/modificadores/modificadores.component';
+import { RegistroModificadoresComponent } from './components/registro-modificadores/registro-modificadores.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { PagoComponent } from './components/pago/pago.component';
     RegistroCiudadesComponent,
     RegistroUserSucursalComponent,
     PagoComponent,
+    ModificadoresComponent,
+    RegistroModificadoresComponent,
   ],
   imports: [
     BrowserModule,

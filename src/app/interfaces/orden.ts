@@ -1,8 +1,9 @@
 export interface Orden {
+    id_orden:number;
     cliente:number;
     dirreción:string;
     pago:number;
-    completado:string;
+    estado:string;
     productos:string;
-    adiciones:string;
+    modificadores:string;
 }
