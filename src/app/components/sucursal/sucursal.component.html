@@ -11,7 +11,6 @@
     <table class="table table-bordered tabla">
         <thead>
             <tr>
-                <th scope="col">Codigo</th>
                 <th scope="col">Nombre de la sucursal</th>
                 <th scope="col">Ciudad</th>
                 <th scope='col'>Dirrección</th>
@@ -22,7 +21,6 @@
         </thead>
         <tbody>
             <tr *ngFor="let sucursal of   sucursales">
-                <th scope="row">{{sucursal.codigo}}</th>
                 <td>{{ sucursal.nombre_sucursal }}</td>
                 <td>{{ sucursal.ciudad }}</td>
                 <td>{{ sucursal.direccion}}</td>

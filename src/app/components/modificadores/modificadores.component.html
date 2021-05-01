@@ -1,1 +1,38 @@
-<p>modificadores works!</p>
+<div class="contents contenedorcategorias">
+    <div class="row">
+        <div class="col-6">
+            <h3><b>Categorias</b></h3>
+        </div>
+        <div class="col-6 text-right pb-3">
+            <a class="btn btn-success botonproduct mb-1"> Agregar categoria</a><br>
+        </div>
+    </div>
+    <table class="table table-bordered tabla">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let catego of categorias">
+                <td>{{ catego.nombre}}</td>
+                <td>
+                    <a class="btn btn-warning boton"> Editar</a>
+                    <a class="btn btn-danger boton"> Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshCategorias()">
+        </ngb-pagination>
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCategorias()">
+            <option [ngValue]="2">2 items por página</option>
+            <option [ngValue]="4">4 items por página</option>
+            <option [ngValue]="6">6 items por página</option>
+        </select>
+    </div>
+</div>
+

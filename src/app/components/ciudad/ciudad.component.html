@@ -10,7 +10,6 @@
     <table class="table table-bordered tabla">
         <thead>
             <tr>
-                <th scope="col">Codigo</th>
                 <th scope="col">Ciudad</th>
                 <th scope="col">Departamento</th>
                 <th scope='col'> Acciones</th>
@@ -18,10 +17,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let ciudad of ciudades">
-                <th scope="row">{{ciudad.codigo}}</th>
-                <td>
-                    {{ ciudad.ciudad }}
-                </td>
+                <td>{{ ciudad.ciudad }}</td>
                 <td>{{ ciudad.departamento}}</td>
                 <td>
                     <a class="btn btn-warning boton"> Editar</a>

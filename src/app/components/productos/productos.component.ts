@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductosService } from 'src/app/services/productos/productos.service';
+import { RegistroProductosComponent } from '../registro-productos/registro-productos.component';
 
 @Component({
   selector: 'app-productos',
@@ -14,7 +16,7 @@ export class ProductosComponent implements OnInit {
   productos : any = [];
   item : number = 0;
 
-  constructor(private _productoservice: ProductosService) {
+  constructor(private _productoservice: ProductosService, private modalService: NgbModal) {
     this.refreshProductos();
   }
 
@@ -30,6 +32,11 @@ export class ProductosComponent implements OnInit {
       this.collectionSize = this.productos.length;
       console.log(this.productos);
     })
+  }
+
+  registroProducto(){
+    const modal = this.modalService.open(RegistroProductosComponent, { size: 'md'});
+    modal.componentInstance.name = 'vale';
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -17,12 +18,17 @@ export class RegistroSucursalesComponent implements OnInit {
   telefono: string = '';
   celular: string = '';
   sucursal: any = {};
+  ciudades:any = {};
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService : SucursalService) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService : SucursalService,
+    private _ciudadService : CiudadesService) {
 
   }
 
   ngOnInit(): void {
+    this._ciudadService.getCiudades().subscribe(data => {
+      this.ciudades= data;
+    })
   }
 
   insertar() {

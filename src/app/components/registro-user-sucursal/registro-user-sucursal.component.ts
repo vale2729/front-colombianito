@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -20,12 +21,17 @@ export class RegistroUserSucursalComponent implements OnInit {
   direccion: string = '';
   sucursal: string = '';
   user: any = {};
+  sucursales: any ={};
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
+    private _sucursalService : SucursalService) {
 
   }
 
   ngOnInit(): void {
+    this._sucursalService.getSucursales().subscribe(data => {
+      this.sucursales = data;
+    })
   }
 
   insertar() {

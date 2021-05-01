@@ -10,14 +10,12 @@
     <table class="table table-bordered tabla">
         <thead>
             <tr>
-                <th scope="col">Codigo</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let catego of categorias">
-                <th scope="row">{{catego.codigo}}</th>
                 <td>{{ catego.nombre}}</td>
                 <td>
                     <a class="btn btn-warning boton"> Editar</a>

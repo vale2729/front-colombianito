@@ -40,6 +40,7 @@ import { RegistroUserSucursalComponent } from './components/registro-user-sucurs
 import { PagoComponent } from './components/pago/pago.component';
 import { ModificadoresComponent } from './components/modificadores/modificadores.component';
 import { RegistroModificadoresComponent } from './components/registro-modificadores/registro-modificadores.component';
+import { RegistroProductosComponent } from './components/registro-productos/registro-productos.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { RegistroModificadoresComponent } from './components/registro-modificado
     PagoComponent,
     ModificadoresComponent,
     RegistroModificadoresComponent,
+    RegistroProductosComponent,
   ],
   imports: [
     BrowserModule,
