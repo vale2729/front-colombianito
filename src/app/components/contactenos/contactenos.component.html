@@ -1,37 +1,47 @@
-<div class="container">
-  <h2 class="contactenos-text text-center p-4">
-    <b>Contactenos</b>
-  </h2>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Ciudad</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Teléfono</th>
-        <th scope="col">Celular</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sucursal of   sucursales">
-        <td>{{sucursal.ciudad}}</td>
-        <td>{{sucursal.direccion}}</td>
-        <td>{{sucursal.telefono}}</td>
-        <td>{{sucursal.celular}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="container pt-4">
-    <div class="row">
-      <div class="col-6">
-        <h4>Sugerencias</h4>
-        <p>En caso de tener alguna queja o sugerencia favor comunicarse a la central <br>
-          telefono : 432432<br> correo: colombiano@hambriento.com
-        </p>
+<div class="container1">
+  <div class="container">
+    <h2 class="contactenos-text text-center p-4">
+      <b>Contactenos</b>
+    </h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Celular</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sucursal of   sucursales">
+          <td>{{sucursal.ciudad}}</td>
+          <td>{{sucursal.direccion}}</td>
+          <td>{{sucursal.telefono}}</td>
+          <td>{{sucursal.celular}}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="container pt-4">
+      <div class="row">
+        <div class="col-6">
+          <h4>Sugerencias</h4>
+          <p>En caso de tener alguna queja o sugerencia favor comunicarse a la central <br>
+            telefono : 432432<br> correo: colombiano@hambriento.com
+          </p>
+        </div>
+        <div class="col-6">
+  
+        </div>
       </div>
-      <div class="col-6">
-
+    </div>
+    <div class="container pt-4">
+      <div class="row">
+        <img class="imge" src="../assets/RedesSociales/facebook.png" alt="" width=40px, height=40px>
+        <img class="imge" src="../assets/RedesSociales/gorjeo.png" alt="" width=40px, height=40px>
+        <img class="imge" src="../assets/RedesSociales/instagram.png" alt="" width=40px, height=40px>
+        <img class="imge" src="../assets/RedesSociales/whatsapp.png" alt="" width=40px, height=40px>
       </div>
     </div>
   </div>

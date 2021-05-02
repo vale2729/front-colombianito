@@ -1,1 +1,31 @@
-<h1>Inicio jejeje</h1>
+<div class="contenedor">
+    <div class="Carrusel">
+        <ngb-carousel #carousel [interval]="1000">
+          <ng-template ngbSlide *ngFor="let img of images; index as i">
+            <div class="carousel-caption">
+              <h3>{{i + 1}}</h3>
+            </div>
+            <a href="/assets/Carrucel/+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+              <div class="picsum-img-wrapper">
+                <img [src]="img" alt="My image {{i + 1}} description">
+              </div>
+            </a>
+          </ng-template>
+        </ngb-carousel>
+
+        <div class="">
+          <h2>BIENVENIDOS A NUESTRO RESTAURANTE EL COLOMBIANO HAMBRIENTO</h2>
+          <br>
+          <h4>Es un placer darle la bienvenida a nuestro restaurante, esperomos que aqui pueda calmar todos sus antojitos.
+            <br><br>
+            Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32
+            <br><br>
+            El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H. Rackham.
+
+          </h4>
+          <br>
+        </div>
+
+    </div>
+    
+</div>
