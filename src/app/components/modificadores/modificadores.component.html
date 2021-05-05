@@ -4,19 +4,21 @@
             <h3><b>Categorias</b></h3>
         </div>
         <div class="col-6 text-right pb-3">
-            <a class="btn btn-success botonproduct mb-1"> Agregar categoria</a><br>
+            <a class="btn btn-success botonproduct mb-1"> Agregar modificador</a><br>
         </div>
     </div>
     <table class="table table-bordered tabla">
         <thead>
             <tr>
-                <th scope="col">Nombre</th>
+                <th scope="col">Modificador</th>
+                <th scope="col">Producto</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let catego of categorias">
-                <td>{{ catego.nombre}}</td>
+            <tr *ngFor="let modificador of modificadores">
+                <td>{{ modificador.modificador}}</td>
+                <td>{{ modificador.producto}}</td>
                 <td>
                     <a class="btn btn-warning boton"> Editar</a>
                     <a class="btn btn-danger boton"> Eliminar</a>
@@ -26,13 +28,14 @@
     </table>
     <div class="d-flex justify-content-between p-2">
         <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-            (pageChange)="refreshCategorias()">
+            (pageChange)="refreshModificadores()">
         </ngb-pagination>
-        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCategorias()">
-            <option [ngValue]="2">2 items por página</option>
-            <option [ngValue]="4">4 items por página</option>
-            <option [ngValue]="6">6 items por página</option>
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshModificadores()">
+            <option [ngValue]="2">2 items por pagina</option>
+            <option [ngValue]="4">4 items por pagina</option>
+            <option [ngValue]="6">6 items por pagina</option>
         </select>
     </div>
 </div>
+
 

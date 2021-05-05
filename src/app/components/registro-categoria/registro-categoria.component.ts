@@ -20,7 +20,6 @@ export class RegistroCategoriaComponent implements OnInit {
 
   insertar() {
     this.categoria = {
-      codigo : this.codigo,
       nombre : this.nombre
     };
 

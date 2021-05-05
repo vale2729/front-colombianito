@@ -12,7 +12,7 @@
         [(ngModel)]="nombre" name="nombre" /><br>
       <select class="form-control" [(ngModel)]="ciudad" name="ciudad">
         <option selected>Elige una ciudad</option>
-        <option value="1" *ngFor="let ciudad of ciudades">{{ciudad.ciudad}}</option>
+        <option *ngFor="let ciudad of ciudades" value='{{ciudad.id_ciudad}}'>{{ciudad.ciudad}}</option>
       </select><br>
 
       <input type="text" class="forms rounded form-control" required="true" placeholder="Dirección"

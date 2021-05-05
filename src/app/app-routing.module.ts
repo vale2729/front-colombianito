@@ -18,19 +18,19 @@ import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { LayaoutsucursalComponent } from './components/layaoutsucursal/layaoutsucursal.component';
 import { LoginSucursalComponent } from './components/login-sucursal/login-sucursal.component';
 import { InicioSucursalComponent } from './components/inicio-sucursal/inicio-sucursal.component';
-import { RegistroAdminComponent } from './components/registro-admin/registro-admin.component';
-import { RegistroSucursalesComponent } from './components/registro-sucursales/registro-sucursales.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-admin.component';
 import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { ModificadoresComponent } from './components/modificadores/modificadores.component';
 
+
+
 const routes: Routes = [
 
   {
     path: '', component: ChComponent, children: [
-      { path: 'ch/inicio', component: InicioComponent },
+      { path: '', component: InicioComponent },
       { path: 'ch/menu', component: MenuComponent },
       { path: 'ch/contactenos', component: ContactenosComponent },
       { path: 'ch/quienessomos', component: QuienessomosComponent },

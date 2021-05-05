@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
+import { ModificadoresService } from 'src/app/services/modificadores/modificadores.service';
 
 @Component({
   selector: 'app-modificadores',
@@ -11,25 +13,29 @@ export class ModificadoresComponent implements OnInit {
   page = 1;
   pageSize = 4;
   collectionSize = 0;
-  categorias : any = [];
+  modificadores : any = [];
   item : number = 0;
 
-  constructor(private _categoriaService : CategoriasService) {
-    this.refreshCategorias();
-   }
+  constructor(private _modificadorService : ModificadoresService, private modalService: NgbModal ) {
+    this.refreshModificadores();
+  }
 
-  ngOnInit() {
-    this._categoriaService.getCategorias().subscribe(data => {
-      this.categorias = data;
-      this.collectionSize = this.categorias.length;
-      console.log(this.categorias);
+  refreshModificadores() {
+    this.modificadores
+      .map((modificador:any, i:any) => ({id: i + 1, ...modificador}))
+      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  }
+
+  ngOnInit(): void {
+    this._modificadorService.getModificador().subscribe(data => {
+      this.modificadores = data;
+      this.collectionSize = this.modificadores.length;
+      console.log(this.modificadores);
     })
   }
 
-  refreshCategorias() {
-    this.categorias
-      .map((categoria:any, i:any) => ({id: i + 1, ...categoria}))
-      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  registroModificador(){
+    
   }
 
 }

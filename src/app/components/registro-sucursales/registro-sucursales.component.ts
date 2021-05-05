@@ -18,22 +18,21 @@ export class RegistroSucursalesComponent implements OnInit {
   telefono: string = '';
   celular: string = '';
   sucursal: any = {};
-  ciudades:any = {};
+  ciudades: any = [];
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService : SucursalService,
-    private _ciudadService : CiudadesService) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService: SucursalService,
+    private _ciudadService: CiudadesService) {
 
   }
 
   ngOnInit(): void {
     this._ciudadService.getCiudades().subscribe(data => {
-      this.ciudades= data;
+      this.ciudades = data;
     })
   }
 
   insertar() {
     this.sucursal = {
-      codigo: this.codigo,
       nombre_sucursal: this.nombre,
       ciudad: this.ciudad,
       direccion: this.direccion,
@@ -41,10 +40,16 @@ export class RegistroSucursalesComponent implements OnInit {
       celular: this.celular,
     };
 
+    console.log(this.sucursal);
+
     this._sucursalService.setSucursal(this.sucursal).subscribe(data => {
       this.sucursal = data;
       console.log(this.sucursal);
-      if (Object.keys(this.sucursal).length > 0) {
+      if (this.sucursal === 1) {
+        this.activeModal.close();
+        const modal = this.modalService.open(ModalComponent);
+        modal.componentInstance.name = 'Solo se puede registrar una sucursal por ciudad';
+      }else if (Object.keys(this.sucursal).length > 0) {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La sucursal se creo con exito';
@@ -54,7 +59,6 @@ export class RegistroSucursalesComponent implements OnInit {
         modal.componentInstance.name = 'La sucursal no se pudo registrar, intentalo de nuevo';
       }
     })
-    console.log(this.sucursal);
 
   }
 

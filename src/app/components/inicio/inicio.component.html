@@ -1,9 +1,8 @@
-<div class="contenedor">
+<div class="contenedor pt-4">
     <div class="Carrusel">
         <ngb-carousel #carousel [interval]="1000">
           <ng-template ngbSlide *ngFor="let img of images; index as i">
             <div class="carousel-caption">
-              <h3>{{i + 1}}</h3>
             </div>
             <a href="/assets/Carrucel/+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
               <div class="picsum-img-wrapper">
@@ -13,7 +12,7 @@
           </ng-template>
         </ngb-carousel>
 
-        <div class="">
+        <div class="text-justify">
           <h2>BIENVENIDOS A NUESTRO RESTAURANTE EL COLOMBIANO HAMBRIENTO</h2>
           <br>
           <h4>Es un placer darle la bienvenida a nuestro restaurante, esperomos que aqui pueda calmar todos sus antojitos.

@@ -22,15 +22,18 @@ export class RegistroCiudadesComponent implements OnInit {
 
   insertar() {
     this.ciudad = {
-      codigo : this.codigo,
       departamento : this.departamento,
-      ciudad : this.nombreCiudad
+      nombre_ciudad : this.nombreCiudad
     };
 
     this._ciudadService.setCiudad(this.ciudad).subscribe(data => {
       this.ciudad = data;
       console.log(this.ciudad);
-      if (Object.keys(this.ciudad).length > 0) {
+      if (this.ciudad === 1) {
+        this.activeModal.close();
+        const modal = this.modalService.open(ModalComponent);
+        modal.componentInstance.name = 'Esta ciudad ya se encuentra registrada';
+      }else if (Object.keys(this.ciudad).length > 0) {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La ciudad se creo con exito';
