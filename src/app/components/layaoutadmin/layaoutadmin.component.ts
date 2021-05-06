@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layaoutadmin.component.scss']
 })
 export class LayaoutadminComponent implements OnInit {
-
+  title = 'El colombianito';
   constructor() { }
 
   ngOnInit(): void {

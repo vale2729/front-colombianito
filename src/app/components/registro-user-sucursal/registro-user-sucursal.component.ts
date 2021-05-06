@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
@@ -21,10 +22,10 @@ export class RegistroUserSucursalComponent implements OnInit {
   direccion: string = '';
   sucursal: string = '';
   user: any = {};
-  sucursales: any ={};
+  sucursales: any = {};
 
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
-    private _sucursalService : SucursalService) {
+    private _sucursalService: SucursalService, private ruta: Router) {
 
   }
 
@@ -54,6 +55,7 @@ export class RegistroUserSucursalComponent implements OnInit {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'El usuario para la sucursal se creo con exito';
+        this.redirectTo('admin/inicio-admin/registroSucursales');
 
       } else {
         const modal = this.modalService.open(ModalComponent);
@@ -62,6 +64,11 @@ export class RegistroUserSucursalComponent implements OnInit {
     })
     console.log(this.user);
 
+  }
+
+  redirectTo(url: string) {
+    this.ruta.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.ruta.navigate([url]));
   }
 
 }

@@ -20,8 +20,8 @@
                 <td>{{ ciudad.nombre_ciudad}}</td>
                 <td>{{ ciudad.departamento}}</td>
                 <td>
-                    <a class="btn btn-warning boton"> Editar</a>
-                    <a class="btn btn-danger boton"> Eliminar</a>
+                    <button class="btn btn-warning boton" value='{{ciudad.id_ciudad}}' name="btnEditar" (click)="editarCiudad(ciudad.id_ciudad)"> Editar</button>
+                    <button class="btn btn-danger boton" value='{{ciudad.id_ciudad}}' name="btnEliminar"> Eliminar</button>
                 </td>
             </tr>
         </tbody>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
+import { EditarCiudadComponent } from '../editar-ciudad/editar-ciudad.component';
 import { RegistroCiudadesComponent } from '../registro-ciudades/registro-ciudades.component';
 
 @Component({
@@ -9,12 +10,17 @@ import { RegistroCiudadesComponent } from '../registro-ciudades/registro-ciudade
   styleUrls: ['./ciudad.component.scss']
 })
 
-export class CiudadComponent implements OnInit {
+export class CiudadComponent implements OnInit, OnChanges {
   page = 1;
   pageSize = 4;
   collectionSize = 0;
-  ciudades : any = [];
+  public ciudades : any = [];
   item : number = 0;
+  id_ciudad : number = 0;
+  btnEditar : object = {};
+  btnEliminar : Object = '';
+  idBoton : string = '';
+  prueba : string = '';
 
   constructor(private _ciudadService : CiudadesService, private modalService: NgbModal) {
     this.refreshCountries();
@@ -27,6 +33,13 @@ export class CiudadComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCiudades();
+  }
+
+  ngOnChanges(){
+  }
+
+  getCiudades(){
     this._ciudadService.getCiudades().subscribe(data => {
       this.ciudades = data;
       this.collectionSize = this.ciudades.length;
@@ -37,6 +50,12 @@ export class CiudadComponent implements OnInit {
   registroCiudad(){
     const modal = this.modalService.open(RegistroCiudadesComponent, { size: 'md'});
     modal.componentInstance.name = 'vale';
+  }
+
+  editarCiudad(id:number){
+    console.log(id);
+    const modal = this.modalService.open(EditarCiudadComponent, { size: 'md'});
+    modal.componentInstance.id_ciudad = id;
   }
 
 }

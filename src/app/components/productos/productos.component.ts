@@ -27,7 +27,7 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._productoservice.getproductos().subscribe(data => {
+    this._productoservice.getProductos().subscribe(data => {
       this.productos = data;
       this.collectionSize = this.productos.length;
       console.log(this.productos);

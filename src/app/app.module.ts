@@ -41,6 +41,7 @@ import { PagoComponent } from './components/pago/pago.component';
 import { ModificadoresComponent } from './components/modificadores/modificadores.component';
 import { RegistroModificadoresComponent } from './components/registro-modificadores/registro-modificadores.component';
 import { RegistroProductosComponent } from './components/registro-productos/registro-productos.component';
+import { EditarCiudadComponent } from './components/editar-ciudad/editar-ciudad.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { RegistroProductosComponent } from './components/registro-productos/regi
     ModificadoresComponent,
     RegistroModificadoresComponent,
     RegistroProductosComponent,
+    EditarCiudadComponent,
   ],
   imports: [
     BrowserModule,

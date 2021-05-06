@@ -1,10 +1,10 @@
 <div class="contents contenedorcategorias">
     <div class="row">
         <div class="col-6">
-            <h3><b>Categorias</b></h3>
+            <h3><b>Modificadores</b></h3>
         </div>
         <div class="col-6 text-right pb-3">
-            <a class="btn btn-success botonproduct mb-1"> Agregar modificador</a><br>
+            <a class="btn btn-success botonproduct mb-1" (click)="registroModificador()"> Agregar modificador</a><br>
         </div>
     </div>
     <table class="table table-bordered tabla">
@@ -18,7 +18,7 @@
         <tbody>
             <tr *ngFor="let modificador of modificadores">
                 <td>{{ modificador.modificador}}</td>
-                <td>{{ modificador.producto}}</td>
+                <td>{{ modificador.nombre}}</td>
                 <td>
                     <a class="btn btn-warning boton"> Editar</a>
                     <a class="btn btn-danger boton"> Eliminar</a>

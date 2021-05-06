@@ -36,7 +36,6 @@ const routes: Routes = [
       { path: 'ch/quienessomos', component: QuienessomosComponent },
       { path: 'ch/login', component: LoginComponent },
       { path: 'ch/registro', component: RegistroComponent },
-      { path: 'ch/ciudades', component: CiudadComponent },
       { path: 'ch/menu/carrito', component: CarritoComponent },
       { path: 'ch/menu/pago', component: PagoComponent},
     ]

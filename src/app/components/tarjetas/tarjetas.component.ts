@@ -18,7 +18,7 @@ export class TarjetasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._productoservice.getproductos().subscribe(data => {
+    this._productoservice.getProductos().subscribe(data => {
       this.productos = data
     })
   }

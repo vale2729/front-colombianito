@@ -11,8 +11,8 @@
       <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre de la sucursal"
         [(ngModel)]="nombre" name="nombre" /><br>
       <select class="form-control" [(ngModel)]="ciudad" name="ciudad">
-        <option selected>Elige una ciudad</option>
-        <option *ngFor="let ciudad of ciudades" value='{{ciudad.id_ciudad}}'>{{ciudad.ciudad}}</option>
+        <option selected="true" disabled="disabled">Elige una ciudad</option>
+        <option *ngFor="let ciudad of ciudades" value='{{ciudad.id_ciudad}}'>{{ciudad.nombre_ciudad}}</option>
       </select><br>
 
       <input type="text" class="forms rounded form-control" required="true" placeholder="Dirección"
@@ -22,7 +22,7 @@
       <input type="text" class="forms rounded form-control" required="true" placeholder="Celular" [(ngModel)]="celular"
         name="celular" /><br>
 
-      <button class="btn btn-success login-btn login-submit" (click)="insertar()">Registrar</button>
+      <button class="btn btn-success" (click)="insertar()">Registrar</button>
     </form>
   </div>
 </div>

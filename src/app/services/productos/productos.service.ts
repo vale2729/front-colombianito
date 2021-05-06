@@ -13,7 +13,7 @@ export class ProductosService {
 
   constructor(private http:HttpClient) { }
 
-  getproductos() : Observable<Producto>{
+  getProductos() : Observable<Producto>{
     return this.http.get<Producto>(this.ruta);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
@@ -21,7 +22,7 @@ export class RegistroSucursalesComponent implements OnInit {
   ciudades: any = [];
 
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService: SucursalService,
-    private _ciudadService: CiudadesService) {
+    private _ciudadService: CiudadesService, private ruta : Router) {
 
   }
 
@@ -40,8 +41,6 @@ export class RegistroSucursalesComponent implements OnInit {
       celular: this.celular,
     };
 
-    console.log(this.sucursal);
-
     this._sucursalService.setSucursal(this.sucursal).subscribe(data => {
       this.sucursal = data;
       console.log(this.sucursal);
@@ -53,6 +52,7 @@ export class RegistroSucursalesComponent implements OnInit {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La sucursal se creo con exito';
+        this.redirectTo('admin/inicio-admin/sucursales');
 
       } else {
         const modal = this.modalService.open(ModalComponent);
@@ -61,6 +61,11 @@ export class RegistroSucursalesComponent implements OnInit {
     })
 
   }
+
+  redirectTo(url:string){
+    this.ruta.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.ruta.navigate([url]));
+ }
 
 }
 

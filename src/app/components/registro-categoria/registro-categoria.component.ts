@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { ModalComponent } from '../modal/modal.component';
@@ -13,14 +14,15 @@ export class RegistroCategoriaComponent implements OnInit {
   nombre: string = '';
   categoria: any = {};
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _categoriaService : CategoriasService) { }
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _categoriaService: CategoriasService,
+    private ruta: Router) { }
 
   ngOnInit(): void {
   }
 
   insertar() {
     this.categoria = {
-      nombre : this.nombre
+      nombre: this.nombre
     };
 
     this._categoriaService.setCategoria(this.categoria).subscribe(data => {
@@ -30,6 +32,7 @@ export class RegistroCategoriaComponent implements OnInit {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La categoria se creo con exito';
+        this.redirectTo('admin/inicio-admin/categorias');
 
       } else {
         const modal = this.modalService.open(ModalComponent);
@@ -37,6 +40,11 @@ export class RegistroCategoriaComponent implements OnInit {
       }
     })
 
+  }
+
+  redirectTo(url: string) {
+    this.ruta.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.ruta.navigate([url]));
   }
 
 }
