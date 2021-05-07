@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { EditarAdminComponent } from '../editar-admin/editar-admin.component';
 import { RegistroAdminComponent } from '../registro-admin/registro-admin.component';
 
 @Component({
@@ -38,6 +39,12 @@ export class UsuariosAdminComponent implements OnInit {
   registroAdmin(){
     const modal = this.modalService.open(RegistroAdminComponent, { size: 'md'});
     modal.componentInstance.name = 'vale';
+  }
+
+  editarAdmin(id:number){
+    console.log(id);
+    const modal = this.modalService.open(EditarAdminComponent, { size: 'md'});
+    modal.componentInstance.id_usuario = id;
   }
 
 }

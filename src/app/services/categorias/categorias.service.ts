@@ -11,6 +11,8 @@ import { Categoria } from 'src/app/interfaces/categoria';
 export class CategoriasService {
   ruta = (environment.api) + 'getCategorias';
   rutaSetCategoria = (environment.api) + 'setCategoria';
+  rutaUpdateCategoria = (environment.api) + 'updateCategoria';
+  rutaDeleteCategoria = (environment.api) + 'deleteCategoria';
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +22,13 @@ export class CategoriasService {
 
   setCategoria(categoria: any) {
     return this.http.post(this.rutaSetCategoria, categoria);
+  }
+
+  updateCategoria(categoria: any) {
+    return this.http.post(this.rutaUpdateCategoria, categoria);
+  }
+
+  deleteCategoria(sucursal: any) {
+    return this.http.post(this.rutaDeleteCategoria, sucursal);
   }
 }

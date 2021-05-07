@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
+import { EditarSucursalComponent } from '../editar-sucursal/editar-sucursal.component';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 import { RegistroSucursalesComponent } from '../registro-sucursales/registro-sucursales.component';
 
 
@@ -40,6 +42,20 @@ export class SucursalComponent implements OnInit {
   registroSucursal(){
     const modal = this.modalService.open(RegistroSucursalesComponent, { size: 'md'});
     modal.componentInstance.name = 'vale';
+  }
+
+  editarSucursal(id:number){
+    console.log(id);
+    const modal = this.modalService.open(EditarSucursalComponent, { size: 'md'});
+    modal.componentInstance.id_sucursal = id;
+  }
+
+  eliminarSucursal(id:number){
+    console.log(id);
+    const modal = this.modalService.open(ModalDeleteComponent, { size: 'md'});
+    modal.componentInstance.mensaje = '¿Desea eliminar esta sucursal?';
+    modal.componentInstance.id = id;
+    modal.componentInstance.tabla = 'sucursales';
   }
 
 }

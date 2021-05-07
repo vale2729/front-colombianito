@@ -12,6 +12,7 @@ export class CiudadesService {
   ruta = (environment.api)+'getCiudades';
   rutaSetCiudad = (environment.api)+'setCiudad';
   rutaUpdateCiudad = (environment.api)+'updateCiudad';
+  rutaDeleteCiudad = (environment.api)+'deleteCiudad';
 
   constructor(private http:HttpClient) { }
 
@@ -25,6 +26,10 @@ export class CiudadesService {
 
   updateCiudad(ciudad: any) {
     return this.http.post(this.rutaUpdateCiudad, ciudad);
+  }
+
+  deleteCiudad(ciudad: any) {
+    return this.http.post(this.rutaDeleteCiudad, ciudad);
   }
 
 

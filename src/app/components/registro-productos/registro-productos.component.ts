@@ -9,7 +9,7 @@ import { CategoriasService } from 'src/app/services/categorias/categorias.servic
 })
 export class RegistroProductosComponent implements OnInit {
 
-  categorias : any= {};
+  categorias : any= [];
 
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _categoriaService : CategoriasService) { }
 

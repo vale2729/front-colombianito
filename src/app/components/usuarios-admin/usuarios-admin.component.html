@@ -32,7 +32,7 @@
                 <td>{{ usuario.correo}}</td>
                 <td>{{ usuario.direccion}}</td>
                 <td>
-                    <a class="btn btn-warning boton"> Editar</a>
+                    <a class="btn btn-warning boton" (click)="editarAdmin(usuario.id_usuario)"> Editar</a>
                     <a class="btn btn-danger boton"> Eliminar</a>
                 </td>
             </tr>

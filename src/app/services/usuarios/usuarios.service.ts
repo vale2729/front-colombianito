@@ -14,9 +14,11 @@ export class UsuariosService {
 
   rutaAdmin = (environment.api)+'getUsersAdmin';
   rutaSetAdmin = (environment.api)+'setUserAdmin';
+  rutaUpdateUsuarioAdmin = (environment.api)+'updateUserAdmin';
 
   rutaSucursal = (environment.api)+'getUsersSucursal';
   rutaSetSucursal = (environment.api)+'setUserSucursal';
+  rutaUpdateUsuarioSucursal = (environment.api)+'updateUserSucursal';
   
   constructor(private http:HttpClient) {
 
@@ -33,6 +35,9 @@ export class UsuariosService {
   setUsuarioAdmin(user:any){
     return this.http.post(this.rutaSetAdmin, user);
   }
+  updateUsuarioAdmin(user: any) {
+    return this.http.post(this.rutaUpdateUsuarioAdmin, user);
+  }
 
 
   getUserSucursal() : Observable<UsuarioSucursal>{
@@ -40,5 +45,8 @@ export class UsuariosService {
   }
   setUsuarioSucursal(user:any){
     return this.http.post(this.rutaSetSucursal, user);
+  }
+  updateUsuarioSucursal(user: any) {
+    return this.http.post(this.rutaUpdateUsuarioSucursal, user);
   }
 }

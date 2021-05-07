@@ -11,6 +11,7 @@ export class ModificadoresService {
 
   ruta = (environment.api) + 'getModificadores';
   rutaSetModificador = (environment.api) + 'setModificador';
+  rutaUpdateModificador = (environment.api) + 'updateModificador';
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +21,9 @@ export class ModificadoresService {
 
   setModificador(modificador: any) {
     return this.http.post(this.rutaSetModificador, modificador);
+  }
+
+  updateModificador(modificador: any) {
+    return this.http.post(this.rutaUpdateModificador, modificador);
   }
 }

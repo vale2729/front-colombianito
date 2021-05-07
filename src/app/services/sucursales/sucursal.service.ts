@@ -13,6 +13,8 @@ export class SucursalService {
 
   ruta = (environment.api)+'getSucursales';
   rutaSetSucursal = (environment.api)+'setSucursal';
+  rutaUpdateSucursal = (environment.api)+'updateSucursal'
+  rutaDeleteSucursal = (environment.api)+'deleteSucursal';
 
   constructor(private http:HttpClient) { }
 
@@ -22,5 +24,13 @@ export class SucursalService {
 
   setSucursal(sucursal: any) {
     return this.http.post(this.rutaSetSucursal, sucursal);
+  }
+
+  updateSucursal(sucursal: any) {
+    return this.http.post(this.rutaUpdateSucursal, sucursal);
+  }
+
+  deleteSucursal(sucursal: any) {
+    return this.http.post(this.rutaDeleteSucursal, sucursal);
   }
 }

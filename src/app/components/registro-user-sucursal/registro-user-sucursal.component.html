@@ -38,7 +38,7 @@
         [(ngModel)]="direccion" name="direccion" /><br>
       <select class="form-control" [(ngModel)]="sucursal" name="ciudad">
         <option selected>Elige una sucursal</option>
-        <option value="1" *ngFor="let sucursal of sucursales">{{sucursal.nombre_sucursal}}</option>
+        <option *ngFor="let sucursal of sucursales" value='{{sucursal.id_sucursal}}'>{{sucursal.nombre_sucursal}}</option>
       </select><br>
 
       <button class="btn btn-success" (click)="insertar()">Registrar</button>

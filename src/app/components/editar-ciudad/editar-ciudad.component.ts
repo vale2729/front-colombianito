@@ -48,7 +48,6 @@ export class EditarCiudadComponent implements OnInit {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La ciudad se edito con exito';
-        //this.ruta.navigate(['admin/inicio-admin/ciudades']);
         this.redirectTo('admin/inicio-admin/ciudades');
 
       } else {

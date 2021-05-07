@@ -21,11 +21,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let producto of productos">
-                <td>{{ producto.categoria}}</td>
+                <td>{{ producto.nombre_categoria}}</td>
                 <td>{{ producto.nombre}}</td>
                 <td>{{ producto.descripcion}}</td>
                 <td><img src="{{producto.img}}" class="rounded" alt="" width="150px" height="100px"/></td>
-                <td>{{ producto.activo}}</td>
+                <td>{{ producto.estado}}</td>
                 <td>
                     <a class="btn btn-warning botonproduct mb-1"> Editar</a><br>
                     <a class="btn btn-danger botonproduct"> Eliminar</a>

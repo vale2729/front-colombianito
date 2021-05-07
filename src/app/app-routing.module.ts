@@ -47,7 +47,7 @@ const routes: Routes = [
       {
         path: 'inicio-admin', component: AdminComponent, children: [
           { path: 'ciudades', component: CiudadComponent },
-          { path: 'Sucursales', component: SucursalComponent },
+          { path: 'sucursales', component: SucursalComponent },
           { path: 'categorias', component: CategoriasComponent },
           { path: 'productos', component: ProductosComponent },
           { path: 'modificadores', component: ModificadoresComponent },

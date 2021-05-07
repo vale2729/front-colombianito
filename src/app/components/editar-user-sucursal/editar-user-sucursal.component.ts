@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
@@ -6,12 +6,13 @@ import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
-  selector: 'app-registro-sucursales',
-  templateUrl: './registro-user-sucursal.component.html',
-  styleUrls: ['./registro-user-sucursal.component.scss']
+  selector: 'app-editar-user-sucursal',
+  templateUrl: './editar-user-sucursal.component.html',
+  styleUrls: ['./editar-user-sucursal.component.scss']
 })
-export class RegistroUserSucursalComponent implements OnInit {
-  @Input() name: string = '';
+export class EditarUserSucursalComponent implements OnInit {
+
+  id_administrador: string = '';
   cedula: string = '';
   usuario: string = '';
   clave: string = '';
@@ -21,22 +22,33 @@ export class RegistroUserSucursalComponent implements OnInit {
   correo: string = '';
   direccion: string = '';
   sucursal: string = '';
-  user: any = {};
+  user: any = [];
+  usuarios: any = [];
   sucursales: any = [];
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
-    private _sucursalService: SucursalService, private ruta: Router) {
+  componentRef: any;
+  usuarioConsultado: any = [];
 
-  }
+
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
+    private ruta: Router, private _sucursalService: SucursalService) { }
 
   ngOnInit(): void {
+    this._usuariosService.getUserSucursal().subscribe(data => {
+      this.usuarios = data;
+      this.usuarioConsultado = this.usuarios.filter((element: { id_administrador: string; }) =>
+        element.id_administrador === this.id_administrador);
+      console.log(this.usuarioConsultado);
+    });
+
     this._sucursalService.getSucursales().subscribe(data => {
       this.sucursales = data;
     })
   }
 
-  insertar() {
+  editar() {
     this.user = {
+      id_administrador: this.usuarioConsultado.id_administrador,
       cedula: this.cedula,
       usuario: this.usuario,
       clave: this.clave,
@@ -48,27 +60,27 @@ export class RegistroUserSucursalComponent implements OnInit {
       sucursal: this.sucursal
     };
 
-    this._usuariosService.setUsuarioSucursal(this.user).subscribe(data => {
+    this._usuariosService.updateUsuarioSucursal(this.user).subscribe(data => {
       this.user = data;
       console.log(this.user);
       if (Object.keys(this.user).length > 0) {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario para la sucursal se creo con exito';
+        modal.componentInstance.name = 'El administrador de sucursal se edito con exito';
+        //this.ruta.navigate(['admin/inicio-admin/ciudades']);
         this.redirectTo('admin/inicio-admin/registroSucursales');
 
       } else {
         const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario no se pudo registrar, intentalo de nuevo';
+        modal.componentInstance.name = 'El administrador de sucursal no se pudo editar, intentalo de nuevo';
       }
     })
-    console.log(this.user);
 
   }
 
-  redirectTo(url: string) {
+  redirectTo(uri: string) {
     this.ruta.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.ruta.navigate([url]));
+      this.ruta.navigate([uri]));
   }
 
 }

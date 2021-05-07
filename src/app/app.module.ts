@@ -42,6 +42,12 @@ import { ModificadoresComponent } from './components/modificadores/modificadores
 import { RegistroModificadoresComponent } from './components/registro-modificadores/registro-modificadores.component';
 import { RegistroProductosComponent } from './components/registro-productos/registro-productos.component';
 import { EditarCiudadComponent } from './components/editar-ciudad/editar-ciudad.component';
+import { EditarSucursalComponent } from './components/editar-sucursal/editar-sucursal.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
+import { EditarModificadorComponent } from './components/editar-modificador/editar-modificador.component';
+import { EditarUserSucursalComponent } from './components/editar-user-sucursal/editar-user-sucursal.component';
+import { EditarAdminComponent } from './components/editar-admin/editar-admin.component';
+import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +88,12 @@ import { EditarCiudadComponent } from './components/editar-ciudad/editar-ciudad.
     RegistroModificadoresComponent,
     RegistroProductosComponent,
     EditarCiudadComponent,
+    EditarSucursalComponent,
+    EditarCategoriaComponent,
+    EditarModificadorComponent,
+    EditarUserSucursalComponent,
+    EditarAdminComponent,
+    ModalDeleteComponent,
   ],
   imports: [
     BrowserModule,

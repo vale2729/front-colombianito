@@ -27,8 +27,8 @@
                 <td>{{ sucursal.telefono }}</td>
                 <td>{{ sucursal.celular}}</td>
                 <td>
-                    <a class="btn btn-warning botonSucursal"> Editar</a>
-                    <a class="btn btn-danger botonSucursal"> Eliminar</a>
+                    <a class="btn btn-warning botonSucursal" (click)="editarSucursal(sucursal.id_sucursal)"> Editar</a>
+                    <a class="btn btn-danger botonSucursal" (click)="eliminarSucursal(sucursal.id_sucursal)"> Eliminar</a>
                 </td>
             </tr>
         </tbody>

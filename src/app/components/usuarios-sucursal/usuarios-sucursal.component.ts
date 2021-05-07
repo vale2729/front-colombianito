@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { EditarUserSucursalComponent } from '../editar-user-sucursal/editar-user-sucursal.component';
 import { RegistroUserSucursalComponent } from '../registro-user-sucursal/registro-user-sucursal.component';
 
 @Component({
@@ -38,6 +39,12 @@ export class UsuariosSucursalComponent implements OnInit {
   registroSucursal(){
     const modal = this.modalService.open(RegistroUserSucursalComponent, { size: 'md'});
     modal.componentInstance.name = 'vale';
+  }
+
+  editarCiudad(id:number){
+    console.log(id);
+    const modal = this.modalService.open(EditarUserSucursalComponent, { size: 'md'});
+    modal.componentInstance.id_administrador = id;
   }
 
 }

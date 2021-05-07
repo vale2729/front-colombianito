@@ -18,6 +18,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Direccion</th>
+                <th scope='col'>Sucursal</th>
                 <th scope='col'> Acciones</th>
             </tr>
         </thead>
@@ -31,8 +32,9 @@
                 <td>{{ usuario.telefono}}</td>
                 <td>{{ usuario.correo}}</td>
                 <td>{{ usuario.direccion}}</td>
+                <td>{{ usuario.nombre_sucursal}}</td>
                 <td>
-                    <a class="btn btn-warning boton"> Editar</a>
+                    <a class="btn btn-warning boton" (click)="editarCiudad(usuario.id_administrador)"> Editar</a>
                     <a class="btn btn-danger boton"> Eliminar</a>
                 </td>
             </tr>

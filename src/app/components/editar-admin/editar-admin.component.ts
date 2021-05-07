@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
-  selector: 'app-registro-sucursales',
-  templateUrl: './registro-user-sucursal.component.html',
-  styleUrls: ['./registro-user-sucursal.component.scss']
+  selector: 'app-editar-admin',
+  templateUrl: './editar-admin.component.html',
+  styleUrls: ['./editar-admin.component.scss']
 })
-export class RegistroUserSucursalComponent implements OnInit {
-  @Input() name: string = '';
+export class EditarAdminComponent implements OnInit {
+
+  id_usuario: string = '';
   cedula: string = '';
   usuario: string = '';
   clave: string = '';
@@ -20,23 +20,28 @@ export class RegistroUserSucursalComponent implements OnInit {
   telefono: string = '';
   correo: string = '';
   direccion: string = '';
-  sucursal: string = '';
-  user: any = {};
-  sucursales: any = [];
+  user: any = [];
+  usuarios: any = [];
 
+  componentRef: any;
+  usuarioConsultado: any = [];
+  
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
-    private _sucursalService: SucursalService, private ruta: Router) {
-
-  }
+    private ruta: Router) { }
 
   ngOnInit(): void {
-    this._sucursalService.getSucursales().subscribe(data => {
-      this.sucursales = data;
-    })
+    this._usuariosService.getUserAdmin().subscribe(data => {
+      this.usuarios = data;
+      console.log(this.usuarios);
+      this.usuarioConsultado = this.usuarios.filter((element: { id_usuario: string; }) =>
+        element.id_usuario === this.id_usuario);
+      console.log(this.usuarioConsultado);
+    });
   }
 
-  insertar() {
+  editar() {
     this.user = {
+      id_usuario: this.usuarioConsultado.id_usuario,
       cedula: this.cedula,
       usuario: this.usuario,
       clave: this.clave,
@@ -45,30 +50,28 @@ export class RegistroUserSucursalComponent implements OnInit {
       telefono: this.telefono,
       correo: this.correo,
       direccion: this.direccion,
-      sucursal: this.sucursal
     };
 
-    this._usuariosService.setUsuarioSucursal(this.user).subscribe(data => {
+    this._usuariosService.updateUsuarioSucursal(this.user).subscribe(data => {
       this.user = data;
       console.log(this.user);
       if (Object.keys(this.user).length > 0) {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario para la sucursal se creo con exito';
-        this.redirectTo('admin/inicio-admin/registroSucursales');
+        modal.componentInstance.name = 'El usuario superadministrador se edito con exito';
+        this.redirectTo('admin/inicio-admin/registroAdmin');
 
       } else {
         const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario no se pudo registrar, intentalo de nuevo';
+        modal.componentInstance.name = 'El usuario superadministrador no se pudo editar, intentalo de nuevo';
       }
     })
-    console.log(this.user);
 
   }
 
-  redirectTo(url: string) {
+  redirectTo(uri: string) {
     this.ruta.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.ruta.navigate([url]));
+      this.ruta.navigate([uri]));
   }
 
 }

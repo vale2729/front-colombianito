@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
 import { EditarCiudadComponent } from '../editar-ciudad/editar-ciudad.component';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 import { RegistroCiudadesComponent } from '../registro-ciudades/registro-ciudades.component';
 
 @Component({
@@ -56,6 +57,14 @@ export class CiudadComponent implements OnInit, OnChanges {
     console.log(id);
     const modal = this.modalService.open(EditarCiudadComponent, { size: 'md'});
     modal.componentInstance.id_ciudad = id;
+  }
+
+  eliminarCiudad(id:number){
+    console.log(id);
+    const modal = this.modalService.open(ModalDeleteComponent, { size: 'md'});
+    modal.componentInstance.mensaje = '¿Desea eliminar esta ciudad?';
+    modal.componentInstance.id = id;
+    modal.componentInstance.tabla = 'ciudades';
   }
 
 }

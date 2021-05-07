@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModificadoresService } from 'src/app/services/modificadores/modificadores.service';
+import { EditarModificadorComponent } from '../editar-modificador/editar-modificador.component';
 import { RegistroModificadoresComponent } from '../registro-modificadores/registro-modificadores.component';
 
 @Component({
@@ -37,6 +38,12 @@ export class ModificadoresComponent implements OnInit {
   registroModificador(){
     const modal = this.modalService.open(RegistroModificadoresComponent, { size: 'md'});
     modal.componentInstance.name = 'vale';
+  }
+
+  editarModificador(id:number){
+    console.log(id);
+    const modal = this.modalService.open(EditarModificadorComponent, { size: 'md'});
+    modal.componentInstance.id_modificador = id;
   }
 
 }
