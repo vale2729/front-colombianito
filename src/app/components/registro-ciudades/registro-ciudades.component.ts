@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
-import { CiudadComponent } from '../ciudad/ciudad.component';
 import { ModalComponent } from '../modal/modal.component';
+
 
 
 @Component({
@@ -13,21 +14,33 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class RegistroCiudadesComponent implements OnInit {
 
-  departamento: string = '';
-  nombreCiudad: string = '';
+
   ciudad: any = [];
   componentRef: any;
 
+  formulario : FormGroup;
+
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _ciudadService: CiudadesService,
-    private ruta: Router) { }
+    private ruta: Router, private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+     }
 
   ngOnInit(): void {
+   
+  }
+
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      departamento : ['',[Validators.required]],
+      ciudad : ['',[Validators.required]]
+    })
   }
 
   insertar() {
     this.ciudad = {
-      departamento: this.departamento,
-      nombre_ciudad: this.nombreCiudad
+      departamento: this.formulario.value.departamento,
+      nombre_ciudad: this.formulario.value.ciudad
     };
 
     this._ciudadService.setCiudad(this.ciudad).subscribe(data => {

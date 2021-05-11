@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,7 +12,7 @@ import { ContactenosComponent } from './components/contactenos/contactenos.compo
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CiudadComponent } from './components/ciudad/ciudad.component';
@@ -101,6 +101,7 @@ import { ModalDeleteComponent } from './components/modal-delete/modal-delete.com
     HttpClientModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
