@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModificadoresService } from 'src/app/services/modificadores/modificadores.service';
@@ -12,14 +13,17 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class RegistroModificadoresComponent implements OnInit {
 
-  modificador: string = '';
-  producto: string = '';
-  modificador1: any = [];
+  modificador: any = [];
   productos: any = [];
   componentRef: any;
 
+  formulario : FormGroup;
+
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _modificadorService: ModificadoresService,
-    private ruta: Router, private _productoService : ProductosService) { }
+    private ruta: Router, private _productoService : ProductosService, private formBuilder : FormBuilder) { 
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+    }
 
   ngOnInit(): void {
     this._productoService.getProductos().subscribe(data => {
@@ -27,18 +31,25 @@ export class RegistroModificadoresComponent implements OnInit {
     })
   }
 
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      modificador : ['',[Validators.required]],
+      producto : ['',[Validators.required]]
+    })
+  }
+
   insertar() {
-    this.modificador1 = {
-      modificador: this.modificador,
-      producto: this.producto
+    this.modificador = {
+      modificador: this.formulario.value.modificador,
+      producto: this.formulario.value.producto
     };
 
-    console.log(this.modificador1);
+    console.log(this.modificador);
 
-    this._modificadorService.setModificador(this.modificador1).subscribe(data => {
-      this.modificador1 = data;
-      console.log(this.modificador1);
-      if (Object.keys(this.modificador1).length > 0) {
+    this._modificadorService.setModificador(this.modificador).subscribe(data => {
+      this.modificador = data;
+      console.log(this.modificador);
+      if (Object.keys(this.modificador).length > 0) {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'El modificador se creo con exito';

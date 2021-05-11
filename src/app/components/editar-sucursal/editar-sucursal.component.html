@@ -6,24 +6,23 @@
 </div>
 <div class="modal-body">
     <div class="m-4">
-        <form class="login-form rounded">
+        <form [formGroup]="formulario" class="login-form rounded">
             <p>Ingresar los datos:</p>
-            <p *ngFor="let sucursal of sucursalConsultada">
-                <input type="text" class="forms rounded form-control" required="true"
-                    placeholder="Nombre de la sucursal" name="nombre" value="{{sucursal.nombre_sucursal}}" /><br>
-                <select class="form-control" name="ciudad" value="{{sucursal.nombre_ciudad}}">
-                    <option selected="true" disabled="disabled">Elige una ciudad</option>
-                    <option *ngFor="let ciudad of ciudades" value='er'>{{ciudad.nombre_ciudad}}
-                    </option>
-                </select><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre de la sucursal"
+                formControlName="nombreSucursal" /><br>
 
-                <input type="text" class="forms rounded form-control" required="true" placeholder="Dirección"
-                    name="direccion" value="{{sucursal.direccion}}" /><br>
-                <input type="text" class="forms rounded form-control" required="true" placeholder="Teléfono"
-                    name="telefono" value="{{sucursal.telefono}}" /><br>
-                <input type="text" class="forms rounded form-control" required="true" placeholder="Celular"
-                    name="celular" value="{{sucursal.celular}}" /><br>
-            </p>
+            <select class="form-control" formControlName="ciudad" >
+                <option selected="true" disabled="disabled">Elige una ciudad</option>
+                <option *ngFor="let ciudad of ciudades" value='{{ ciudad.id_ciudad }}'>{{ciudad.nombre_ciudad}}</option>
+            </select><br>
+            
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Dirección"
+                formControlName="direccion" /><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Teléfono"
+                formControlName="telefono" /><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Celular"
+                formControlName="celular" /><br>
+
             <button class="btn btn-success" (click)="editar()">Editar</button>
         </form>
     </div>

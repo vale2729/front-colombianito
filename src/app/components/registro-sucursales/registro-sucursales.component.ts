@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
@@ -11,18 +12,15 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./registro-sucursales.component.scss']
 })
 export class RegistroSucursalesComponent implements OnInit {
-  @Input() name: string = '';
-  nombre: string = '';
-  ciudad: string = '';
-  direccion: string = '';
-  telefono: string = '';
-  celular: string = '';
+  
   sucursal: any = {};
   ciudades: any = [];
+  formulario : FormGroup;
 
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _sucursalService: SucursalService,
-    private _ciudadService: CiudadesService, private ruta : Router) {
-
+    private _ciudadService: CiudadesService, private ruta : Router, private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
   }
 
   ngOnInit(): void {
@@ -31,13 +29,23 @@ export class RegistroSucursalesComponent implements OnInit {
     })
   }
 
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      nombreSucursal : ['',[Validators.required]],
+      ciudad : ['',[Validators.required]],
+      direccion : ['',[Validators.required]],
+      telefono : ['',[Validators.required]],
+      celular : ['',[Validators.required]],
+    })
+  }
+
   insertar() {
     this.sucursal = {
-      nombre_sucursal: this.nombre,
-      ciudad: this.ciudad,
-      direccion: this.direccion,
-      telefono: this.telefono,
-      celular: this.celular,
+      nombre_sucursal: this.formulario.value.nombreSucursal,
+      ciudad: this.formulario.value.ciudad,
+      direccion: this.formulario.value.direccion,
+      telefono: this.formulario.value.telefono,
+      celular: this.formulario.value.celular
     };
 
     this._sucursalService.setSucursal(this.sucursal).subscribe(data => {

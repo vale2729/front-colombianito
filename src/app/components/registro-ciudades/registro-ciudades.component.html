@@ -9,10 +9,9 @@
     <form [formGroup]="formulario" class="login-form rounded was-validated" >
       <p>Ingresar los datos:</p>
       <input type="text" class="forms rounded is-invalid form-control" required="true"
-        placeholder="Nombre del departamento" formControlName="departamento" name="departamento" /><br>
+        placeholder="Nombre del departamento" formControlName="departamento" /><br>
       <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre de la ciudad"
-      formControlName="ciudad" name="nombre" /><br>
-
+      formControlName="ciudad"/><br>
       <button class="btn btn-success" (click)="insertar()">Registrar</button>
     </form>
   </div>

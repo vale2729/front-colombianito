@@ -6,20 +6,20 @@
 </div>
 <div class="modal-body">
   <div class="m-4">
-    <form class="login-form rounded">
+    <form [formGroup]="formulario" class="login-form rounded">
       <p>Ingresar los datos:</p>
       <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre de la sucursal"
-        [(ngModel)]="nombre" name="nombre" /><br>
-      <select class="form-control" [(ngModel)]="ciudad" name="ciudad">
+        formControlName="nombreSucursal"/><br>
+      <select class="form-control" formControlName="ciudad" name="ciudad">
         <option selected="true" disabled="disabled">Elige una ciudad</option>
         <option *ngFor="let ciudad of ciudades" value='{{ciudad.id_ciudad}}'>{{ciudad.nombre_ciudad}}</option>
       </select><br>
 
       <input type="text" class="forms rounded form-control" required="true" placeholder="Dirección"
-        [(ngModel)]="direccion" name="direccion" /><br>
+        formControlName="direccion" name="direccion" /><br>
       <input type="text" class="forms rounded form-control" required="true" placeholder="Teléfono"
-        [(ngModel)]="telefono" name="telefono" /><br>
-      <input type="text" class="forms rounded form-control" required="true" placeholder="Celular" [(ngModel)]="celular"
+        formControlName="telefono" name="telefono" /><br>
+      <input type="text" class="forms rounded form-control" required="true" placeholder="Celular" formControlName="celular"
         name="celular" /><br>
 
       <button class="btn btn-success" (click)="insertar()">Registrar</button>

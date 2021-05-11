@@ -8,12 +8,10 @@
     <div class="m-4">
       <form [formGroup]="formulario" class="login-form rounded">
         <p>Ingresar los datos:</p>
-        <p *ngFor="let ciudad of ciudadConsultada">
         <input type="text" class="forms rounded form-control" required="true"
-          placeholder="Nombre del departamento" name="departamento" formControlName="departamento" value="{{ciudad.departamento}}"/><br>
+          placeholder="Nombre del departamento" name="departamento" formControlName="departamento"/><br>
         <input type="text" class="forms rounded form-control" required="true" 
-        placeholder="Nombre de la ciudad" name="nombre" formControlName="ciudad" value="{{ciudad.nombre_ciudad}}"/><br>
-      </p>
+        placeholder="Nombre de la ciudad" name="nombre" formControlName="ciudad"/><br>
         <button class="btn btn-success login-btn login-submit" (click)="editar()">Editar</button>
       </form>
     </div>

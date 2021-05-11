@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
@@ -11,22 +12,16 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./registro-user-sucursal.component.scss']
 })
 export class RegistroUserSucursalComponent implements OnInit {
-  @Input() name: string = '';
-  cedula: string = '';
-  usuario: string = '';
-  clave: string = '';
-  nombre: string = '';
-  apellido: string = '';
-  telefono: string = '';
-  correo: string = '';
-  direccion: string = '';
-  sucursal: string = '';
+
   user: any = {};
   sucursales: any = [];
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
-    private _sucursalService: SucursalService, private ruta: Router) {
+  formulario : FormGroup;
 
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _usuariosService: UsuariosService,
+    private _sucursalService: SucursalService, private ruta: Router, private formBuilder : FormBuilder) {
+      this.formulario = formBuilder.group({});
+      this.crearFormulario();
   }
 
   ngOnInit(): void {
@@ -35,17 +30,31 @@ export class RegistroUserSucursalComponent implements OnInit {
     })
   }
 
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      cedula : ['',[Validators.required]],
+      usuario : ['',[Validators.required]],
+      clave : ['',[Validators.required]],
+      nombre : ['',[Validators.required]],
+      apellido : ['',[Validators.required]],
+      telefono : ['',[Validators.required]],
+      correo : ['',[Validators.required]],
+      direccion : ['',[Validators.required]],
+      sucursal : ['',[Validators.required]]
+    })
+  }
+
   insertar() {
     this.user = {
-      cedula: this.cedula,
-      usuario: this.usuario,
-      clave: this.clave,
-      nombre: this.nombre,
-      apellidos: this.apellido,
-      telefono: this.telefono,
-      correo: this.correo,
-      direccion: this.direccion,
-      sucursal: this.sucursal
+      cedula: this.formulario.value.cedula,
+      usuario: this.formulario.value.usuario,
+      clave: this.formulario.value.clave,
+      nombre: this.formulario.value.nombre,
+      apellidos: this.formulario.value.apellido,
+      telefono: this.formulario.value.telefono,
+      correo: this.formulario.value.correo,
+      direccion: this.formulario.value.direccion,
+      sucursal: this.formulario.value.sucursal
     };
 
     this._usuariosService.setUsuarioSucursal(this.user).subscribe(data => {

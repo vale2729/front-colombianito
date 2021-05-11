@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
@@ -12,34 +13,44 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./registro-admin.component.scss']
 })
 export class RegistroAdminComponent implements OnInit {
-  cedula: string = '';
-  usuario: string = '';
-  clave: string = '';
-  nombre: string = '';
-  apellido: string = '';
-  telefono: string = '';
-  correo: string = '';
-  direccion: string = '';
+
   user: any = {};
 
+  formulario: FormGroup;
+
   constructor(private _usuariosService: UsuariosService, public activeModal: NgbActiveModal, private modalService: NgbModal,
-    private ruta: Router) {
+    private ruta: Router, private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
   }
 
 
   ngOnInit(): void {
   }
 
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      cedula : ['',[Validators.required]],
+      usuario : ['', [Validators.required]],
+      clave : ['', [Validators.required]],
+      nombre : ['', [Validators.required]],
+      apellido : ['', [Validators.required]],
+      telefono : ['', [Validators.required]],
+      correo : ['', [Validators.required]],
+      direccion : ['', [Validators.required]],
+    })
+  }
+
   insertar() {
     this.user = {  
-      usuario: this.usuario,
-      clave: this.clave,
-      nombre: this.nombre,
-      apellidos: this.apellido,
-      cedula: this.cedula,
-      telefono: this.telefono,
-      correo: this.correo,
-      direccion: this.direccion
+      usuario: this.formulario.value.usuario,
+      clave: this.formulario.value.clave,
+      nombre: this.formulario.value.nombre,
+      apellidos: this.formulario.value.apellido,
+      cedula: this.formulario.value.cedula,
+      telefono: this.formulario.value.telefono,
+      correo: this.formulario.value.correo,
+      direccion: this.formulario.value.direccion
     };
 
     this._usuariosService.setUsuarioAdmin(this.user).subscribe(data => {
