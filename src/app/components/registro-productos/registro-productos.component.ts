@@ -4,7 +4,7 @@ import { CategoriasService } from 'src/app/services/categorias/categorias.servic
 import { ProductosService } from 'src/app/services/productos/productos.service';
 import { ModalComponent } from '../modal/modal.component';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro-productos',
@@ -12,34 +12,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-productos.component.scss']
 })
 export class RegistroProductosComponent implements OnInit {
-  categoriaProducto: string = '';
-  nombreProducto: string = '';
-  descripcionProducto: string = '';
-  precioProducto: string = '';
-  imgProducto: string = '';
-  estadoProducto:string = '';
+  
   categorias : any= [];
   rproducto: any = [];
   
-//private _productoService : ProductoService
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal,  private _productoService1 : ProductosService, private _categoriaService : CategoriasService,
-  private ruta: Router) { }
+  formulario: FormGroup;
 
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal,  private _productoService1 : ProductosService, private _categoriaService : CategoriasService,
+  private ruta: Router, private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+  }
 
   ngOnInit(): void {
     this._categoriaService.getCategorias().subscribe(data => {
       this.categorias=data;
     })
   }
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      categoria_Producto : ['',[Validators.required]],
+      nombre_Producto : ['', [Validators.required]],
+      descripcion_Producto : ['', [Validators.required]],
+      precio_Producto : ['', [Validators.required]],
+      img_Producto : ['', [Validators.required]],
+      estado_Producto : ['', [Validators.required]],
+    })
+  }
 
   insertar() {
     this.rproducto = {
-      categoria_Producto: this.categoriaProducto,
-      nombre_Producto:this.nombreProducto,
-      descripcion_Producto:this.descripcionProducto,
-      precio_Producto:this.precioProducto,
-      img_Producto:this.imgProducto,
-      estado_Producto:this.estadoProducto
+      categoria_Producto: this.formulario.value.categoria_Producto,
+      nombre_Producto:this.formulario.value.nombre_Producto,
+      descripcion_Producto:this.formulario.value.descripcion_Producto,
+      precio_Producto:this.formulario.value.precio_Producto,
+      img_Producto:this.formulario.value.img_Producto,
+      estado_Producto:this.formulario.value.estado_Producto
     };
 
     this._productoService1.setProductos(this.rproducto).subscribe(data => {
