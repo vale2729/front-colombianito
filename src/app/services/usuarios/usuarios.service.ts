@@ -19,6 +19,7 @@ export class UsuariosService {
   rutaSucursal = (environment.api)+'getUsersSucursal';
   rutaSetSucursal = (environment.api)+'setUserSucursal';
   rutaUpdateUsuarioSucursal = (environment.api)+'updateUserSucursal';
+  rutaDeleteUsuarioSucursal = (environment.api)+'deleteUserSucursal';
   
   constructor(private http:HttpClient) {
 
@@ -48,5 +49,8 @@ export class UsuariosService {
   }
   updateUsuarioSucursal(user: any) {
     return this.http.post(this.rutaUpdateUsuarioSucursal, user);
+  }
+  deleteUsuarioSucursal(user:any) {
+    return this.http.post(this.rutaDeleteUsuarioSucursal, user);
   }
 }

@@ -6,11 +6,11 @@
 </div>
 <div class="modal-body">
     <div class="m-4">
-        <form class="login-form rounded">
+        <form [formGroup]="formulario" class="login-form rounded">
             <p>Ingresar los datos:</p>
             <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre del modificador"
-                [(ngModel)]="modificador" name="modificador" /><br>
-            <select class="form-control" [(ngModel)]="producto" name="producto">
+                formControlName="modificador"/><br>
+            <select class="form-control" formControlName="producto">
                 <option selected="true" disabled="disabled">Elige un producto</option>
                 <option *ngFor="let producto of productos" value='{{ producto.id_producto }}'>{{producto.nombre}}</option>
             </select><br>

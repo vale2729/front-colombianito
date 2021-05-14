@@ -6,13 +6,12 @@
 </div>
 <div class="modal-body">
   <div class="m-4">
-    <form class="login-form rounded was-validated">
+    <form [formGroup]="formulario" class="login-form rounded was-validated" >
       <p>Ingresar los datos:</p>
       <input type="text" class="forms rounded is-invalid form-control" required="true"
-        placeholder="Nombre del departamento" [(ngModel)]="departamento" name="departamento" /><br>
+        placeholder="Nombre del departamento" formControlName="departamento" /><br>
       <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre de la ciudad"
-        [(ngModel)]="nombreCiudad" name="nombre" /><br>
-
+      formControlName="ciudad"/><br>
       <button class="btn btn-success" (click)="insertar()">Registrar</button>
     </form>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
@@ -11,18 +12,28 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class RegistroCategoriaComponent implements OnInit {
 
-  nombre_categoria: string = '';
   categoria: any = {};
 
+  formulario: FormGroup;
+
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private _categoriaService: CategoriasService,
-    private ruta: Router) { }
+    private ruta: Router, private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+     }
 
   ngOnInit(): void {
   }
 
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      categoria : ['',[Validators.required]],
+    })
+  }
+
   insertar() {
     this.categoria = {
-      nombre_categoria: this.nombre_categoria
+      nombre_categoria: this.formulario.value.categoria
     };
 
     this._categoriaService.setCategoria(this.categoria).subscribe(data => {

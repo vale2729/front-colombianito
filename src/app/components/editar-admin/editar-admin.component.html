@@ -1,44 +1,43 @@
 <div class="modal-header">
     <h4 class="modal-title">Colombiano Hambriento</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true">&times;</span>
     </button>
-</div>
-<div class="modal-body">
+  </div>
+  <div class="modal-body">
     <div class="m-4">
-        <form class="login-form rounded">
-            <p>Ingresar los datos:</p>
-            <div *ngFor="let usuario of usuarioConsultado">
-                <input type="text" class="forms rounded form-control" autofocus="true" required="true"
-                    placeholder="Cedula" name="cedula" value="{{usuario.cedula}}" /> <br>
-                <div class="row">
-                    <div class="col-6">
-                        <input type="text" class="forms rounded form-control" required="true" placeholder="Usuario"
-                            name="usuario" value="{{usuario.usuario}}"/><br>
-                    </div>
-                    <div class="col-6">
-                        <input type="password" class="forms rounded form-control" required="true"
-                            placeholder="Contraseña" name="clave" value="{{usuario.clave}}" /><br>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre"
-                            name="nombre" value="{{usuario.nombre}}"/><br>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" class="forms rounded form-control" required="true" placeholder="Apellidos"
-                            name="apellido" value="{{usuario.apellidos}}"/><br>
-                    </div>
-                </div>
-                <input type="text" class="forms rounded form-control" required="true" placeholder="Telefono"
-                    name="telefono" value="{{usuario.telefono}}"/><br>
-                <input type="email" class="forms rounded form-control" required="true" placeholder="Correo Electronico"
-                    name="correo" value="{{usuario.correo}}"/><br>
-                <input type="text" class="forms rounded form-control" required placeholder="Direccion"
-                    name="direccion" value="{{usuario.direccion}}"/><br>
-            </div>
-            <button class="btn btn-success" (click)="editar()">Registrar</button>
-        </form>
+      <form [formGroup]="formulario" class="login-form rounded was-validated">
+        <p>Ingresar los datos:</p>
+        <input type="text" class="forms rounded is-invalid form-control" autofocus="true" required="true"
+          placeholder="Cedula" formControlName="cedula" /> <br>
+        <div class="row">
+          <div class="col-6">
+            <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Usuario"
+              formControlName="usuario" /><br>
+          </div>
+          <div class="col-6">
+            <input type="password" class="forms rounded is-invalid form-control" required="true" placeholder="Contraseña"
+              formControlName="clave" /><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Nombre"
+              formControlName="nombre" /><br>
+          </div>
+          <div class="col-6">
+            <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Apellidos"
+              formControlName="apellidos" /><br>
+          </div>
+        </div>
+        <input type="text" class="forms rounded is-invalid form-control" required="true" placeholder="Telefono"
+          formControlName="telefono" /><br>
+        <input type="email" class="forms rounded is-invalid form-control" required="true" placeholder="Correo Electronico"
+          formControlName="correo" /><br>
+        <input type="text" class="forms rounded is-invalid form-control" required placeholder="Direccion"
+          formControlName="direccion" /><br>
+  
+        <button class="btn btn-success" (click)="editar()">Editar</button>
+      </form>
     </div>
-</div>
+  </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 import { EditarUserSucursalComponent } from '../editar-user-sucursal/editar-user-sucursal.component';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 import { RegistroUserSucursalComponent } from '../registro-user-sucursal/registro-user-sucursal.component';
 
 @Component({
@@ -41,10 +42,18 @@ export class UsuariosSucursalComponent implements OnInit {
     modal.componentInstance.name = 'vale';
   }
 
-  editarCiudad(id:number){
+  editarSucursal(id:number){
     console.log(id);
     const modal = this.modalService.open(EditarUserSucursalComponent, { size: 'md'});
     modal.componentInstance.id_administrador = id;
+  }
+
+  eliminarSucursal(id:number){
+    console.log(id);
+    const modal = this.modalService.open(ModalDeleteComponent, { size: 'md'});
+    modal.componentInstance.mensaje = '¿Desea eliminar este administrador de sucursal?';
+    modal.componentInstance.id = id;
+    modal.componentInstance.tabla = 'usuarioSucursal';
   }
 
 }

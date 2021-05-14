@@ -11,7 +11,7 @@ import { RegistroCiudadesComponent } from '../registro-ciudades/registro-ciudade
   styleUrls: ['./ciudad.component.scss']
 })
 
-export class CiudadComponent implements OnInit, OnChanges {
+export class CiudadComponent implements OnInit {
   page = 1;
   pageSize = 4;
   collectionSize = 0;
@@ -35,9 +35,6 @@ export class CiudadComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.getCiudades();
-  }
-
-  ngOnChanges(){
   }
 
   getCiudades(){

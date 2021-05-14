@@ -21,7 +21,7 @@
                 <td>{{ modificador.nombre}}</td>
                 <td>
                     <a class="btn btn-warning boton" (click)="editarModificador(modificador.id_modificador)"> Editar</a>
-                    <a class="btn btn-danger boton"> Eliminar</a>
+                    <a class="btn btn-danger boton" (click)="eliminarModificador(modificador.id_modificador)"> Eliminar</a>
                 </td>
             </tr>
         </tbody>

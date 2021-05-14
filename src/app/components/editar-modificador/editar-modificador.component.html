@@ -6,17 +6,16 @@
 </div>
 <div class="modal-body">
     <div class="m-4">
-        <form class="login-form rounded">
+        <form [formGroup]="formulario" class="login-form rounded">
             <p>Ingresar los datos:</p>
-            <p *ngFor="let modificador of modificadorConsultado">
                 <input type="text" class="forms rounded form-control" required="true"
-                    placeholder="Nombre del modificador" name="modificador" value="{{modificador.modificador}}" /><br>
-                <select class="form-control" name="producto" value="{{modificador.producto}}">
+                    placeholder="Nombre del modificador" formControlName="modificador"/><br>
+
+                <select class="form-control" formControlName="producto" >
                     <option selected="true" disabled="disabled">Elige un producto</option>
-                    <option *ngFor="let producto of productos" value='{{ producto.id_producto }}'>{{producto.nombre}}
-                    </option>
+                    <option *ngFor="let producto of productos" value='{{ producto.id_producto }}'>{{producto.nombre}}</option>
                 </select><br>
-            </p>
+                
             <button class="btn btn-success" (click)="editar()">Registrar</button>
         </form>
     </div>
