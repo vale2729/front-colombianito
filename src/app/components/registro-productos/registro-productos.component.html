@@ -10,24 +10,21 @@
             <p>Ingresar los datos:</p>
             <select class="form-control" name="ciudad">
                 <option selected>Elige una categoria</option>
-                <option value="1" *ngFor="let categoria of categorias">{{categoria.nombre_categoria}}</option>
+                <option value="1" *ngFor="let categoria of categorias" value="{{categoria.id_categoria}}">{{categoria.nombre_categoria}}</option>
             </select><br>
-            <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre del producto"
-                name="nombre" /><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre del producto" name="nombre" /><br>
 
-            <input type="text" class="forms rounded form-control" required="true" placeholder="Descripción"
-                name="descripcion" /><br>
-            <input type="text" class="forms rounded form-control" required="true" placeholder="Precio"
-                name="precio" /><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Descripción" name="descripcion" /><br>
+            <input type="text" class="forms rounded form-control" required="true" placeholder="Precio" name="precio" /><br>
+            <!-- CARGAR FOTOS -->
             <input type="file" class="form-control" id="foto" name="foto"><br>
+
             <select class="form-control" name="estado">
                 <option selected>Elige un estado</option>
                 <option value="1">Activo</option>
                 <option value="1">Desactivo</option>
             </select><br>
-
-
-            <button class="btn btn-success">Registrar</button>
+            <button class="btn btn-success" (click)="insertar()">Registrar</button>
         </form>
     </div>
 </div>

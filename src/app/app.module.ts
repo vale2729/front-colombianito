@@ -48,6 +48,7 @@ import { EditarModificadorComponent } from './components/editar-modificador/edit
 import { EditarUserSucursalComponent } from './components/editar-user-sucursal/editar-user-sucursal.component';
 import { EditarAdminComponent } from './components/editar-admin/editar-admin.component';
 import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
+import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ModalDeleteComponent } from './components/modal-delete/modal-delete.com
     EditarUserSucursalComponent,
     EditarAdminComponent,
     ModalDeleteComponent,
+    EditarProductosComponent,
   ],
   imports: [
     BrowserModule,
