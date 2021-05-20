@@ -40,7 +40,7 @@ export class EditarAdminComponent implements OnInit {
       apellidos: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
       correo: ['', [Validators.required]],
-      direccion: ['', [Validators.required]],
+      direccion: ['', [Validators.required]]
     })
   }
 

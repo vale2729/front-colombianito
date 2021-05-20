@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
+import { AuthStateService } from 'src/app/services/authState/auth-state.service';
 import { LoginService } from 'src/app/services/login/login.service';
+import { TokenService } from 'src/app/services/token/token.service';
 import { ModalComponent } from '../modal/modal.component';
 
 
@@ -13,29 +16,45 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class LoginComponent implements OnInit {
 
-  user : string = '';
-  clave: string = '';
-  user1 : any = {};
+  user: any = {};
 
-  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta : Router) {  }
+
+  formulario: FormGroup;
+  errors = null;
+
+  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta: Router,
+    private formBuilder: FormBuilder, private _token: TokenService, private _authState: AuthStateService) {
+    this.formulario = new FormGroup({});
+    this.crearFormulario();
+  }
 
   ngOnInit(): void {
+
+  }
+
+  crearFormulario() {
+    this.formulario = this.formBuilder.group({
+      user: ['', [Validators.required]],
+      clave: ['', [Validators.required]]
+    })
   }
 
   login() {
+    this.user = {
+      usuario: this.formulario.value.user,
+      clave: this.formulario.value.clave
+    };
+    if (this._loginservice.userlogin(this.user)) {
+      this.ruta.navigate(['']);
+      //window.location.href = "/ch/menu";
+    } else {
+      alert('El usuario no existe');
+    }
+  }
 
-    this.user1 = { usuario: this.user, clave: this.clave };
-
-    this._loginservice.login(this.user1).subscribe(data => {
-      console.log(data);
-      if (Object.keys(data).length > 0){
-        alert('El usuario existe');
-        this.ruta.navigate(['inicio']);
-      }else{
-        const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario no se encuentra registrado';
-      }
-    });
+  redirectTo(url: string) {
+    this.ruta.navigateByUrl('/', { skipLocationChange: false }).then(() =>
+      this.ruta.navigate([url]));
   }
 
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Producto } from 'src/app/interfaces/producto';
 import { LoginService } from 'src/app/services/login/login.service';
 import { CarritoComponent } from '../carrito/carrito.component';
 
@@ -12,18 +12,48 @@ import { CarritoComponent } from '../carrito/carrito.component';
 })
 
 export class NavComponent implements OnInit {
-  
-  constructor(private title: Title, private log : LoginService, private modalService: NgbModal) { }
 
-  ngOnInit(): void {
-    this.title.setTitle('El colombianito');
+  signedIn: boolean | undefined;
+  
+
+  constructor(private title: Title, private _login: LoginService, private modalService: NgbModal,
+    public ruta: Router) {
   }
 
-  carrito(){
+  ngOnInit(): void {
+    this.iniciar();
+  }
 
-    const modal = this.modalService.open(CarritoComponent, { size: 'xl'});
+  iniciar(){
+    this.title.setTitle('El colombianito');
+    this._login.getLoggedInName.subscribe(name => this.changeName(name));
+    if (this._login.isLoggedIn()) {
+      console.log("loggedin");
+      this.signedIn = true;
+      console.log(this.signedIn);
+    }
+    else {
+      this.signedIn = false;
+    }
+    console.log(this._login.getToken());
+  }
+
+
+  carrito() {
+    const modal = this.modalService.open(CarritoComponent, { size: 'xl' });
     modal.componentInstance.nombre = 'Hamburguesa';
     modal.componentInstance.precio = '12.000';
   }
+
+  private changeName(name: boolean): void {
+    this.signedIn = name;
+    this.signedIn = !name;
+  }
+
+  logout() {
+    this._login.deleteToken();
+    window.location.href = "/";
+  }
+
 
 }

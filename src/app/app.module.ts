@@ -105,7 +105,8 @@ import { EditarProductosComponent } from './components/editar-productos/editar-p
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

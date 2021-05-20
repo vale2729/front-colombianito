@@ -1,15 +1,18 @@
-<form class="login-form rounded">
+<form [formGroup]="formulario" class="login-form rounded">
     <p class="login-text">
         <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-lock fa-stack-1x"></i>
         </span>
     </p>
+
+
+
     <div class="pl-3">
         <input type="email" class="login-username rounded" autofocus="true" required placeholder="Correo Electronico"
-            [(ngModel)]="user" name="user" />
+            formControlName="user" name="user" />
         <input type="password" class="login-password rounded" required="true" placeholder="Contraseña"
-            [(ngModel)]="clave" name="clave" />
+        formControlName="clave" name="clave" />
 
         <button class="btn btn-success login-btn login-submit" (click)="login()">Iniciar sesión</button>
     </div>
