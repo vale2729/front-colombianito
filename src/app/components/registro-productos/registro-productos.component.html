@@ -8,16 +8,20 @@
     <div class="m-4">
         <form [formGroup]="formulario" class="login-form rounded was-validated" >
             <p>Ingresar los datos:</p>
-            <select class="form-control" name="ciudad">
-                <option selected>Elige una categoria</option>
-                <option value="1" *ngFor="let categoria of categorias" value="{{categoria.id_categoria}}"formControlName="categoria_Producto" >{{categoria.nombre_categoria}}</option>
+            <select class="form-control" formControlName="categoria_Producto" name="ciudad">
+                <option >Elige una categoria</option>
+                <option *ngFor="let categoria of categorias" value="{{categoria.id_categoria}}">{{categoria.nombre_categoria}}</option>
             </select><br>
+
             <input type="text" class="forms rounded form-control" required="true" placeholder="Nombre del producto" formControlName="nombre_Producto" /><br>
 
             <input type="text" class="forms rounded form-control" required="true" placeholder="Descripción"  formControlName="descripcion_Producto" /><br>
             <input type="text" class="forms rounded form-control" required="true" placeholder="Precio"formControlName="precio_Producto" /><br>
             <!-- CARGAR FOTOS -->
-            <input type="file" class="form-control" formControlName="img_Producto" name="foto"><br>
+            <input src="../assets/" type="file" class="form-control" formControlName="img_Producto" name="foto"><br>
+
+            <!--    para sucursales 
+                <option *ngFor="let sucursal of sucursales" value="{{sucursal.id_categoria}}">{{sucursal.nombre_categoria}}</option>-->
 
             <select class="form-control" formControlName="estado_Producto">
                 <option selected>Elige un estado</option>

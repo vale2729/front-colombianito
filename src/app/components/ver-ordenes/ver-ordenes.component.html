@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">Colombiano Hambriento</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="m-4">
+        <form [formGroup]="formulario" class="login-form rounded">
+            <p>Ingresar los datos:</p>
+              <input type="text" class="forms rounded is-invalid form-control" autofocus="true" required="true" placeholder="Cliente" formControlName="cliente_orden" /> <br>
+              <input type="text" class="forms rounded form-control" required="true"
+              placeholder="Direccion" formControlName="direccion_orden"/><br>
+              <input type="text" class="forms rounded form-control" required="true"
+              placeholder="Pago" formControlName="pago_orden"/><br>
+              <input type="text" class="forms rounded form-control" required="true"
+              placeholder="Producto" formControlName="producto_orden"/><br>
+              <input type="text" class="forms rounded form-control" required="true"
+              placeholder="Modificadores" formControlName="modificadores_orden"/><br>
+              <input type="text" class="forms rounded form-control" required="true"
+              placeholder="Sucursal" formControlName="Sucursal_orden"/><br>
+              <select class="form-control" formControlName="estado_orden">
+                <option selected>Elige un estado</option>
+                <option value="1">Completo y enviado</option>
+                <option value="1">Cancelado</option>
+              </select><br> 
+            <button class="btn btn-success" (click)="actualizarOrden()">Actualizar</button>
+        </form>
+    </div>
+</div>
+

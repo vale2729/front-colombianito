@@ -23,6 +23,7 @@ import { UsuariosAdminComponent } from './components/usuarios-admin/usuarios-adm
 import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuarios-sucursal.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { ModificadoresComponent } from './components/modificadores/modificadores.component';
+import { ProductosSucursalesComponent } from './components/productos-sucursales/productos-sucursales.component';
 
 
 
@@ -62,7 +63,7 @@ const routes: Routes = [
       { path: '', component: LoginSucursalComponent },
       {
         path: 'inicio-sucursal', component: InicioSucursalComponent, children: [
-          { path: 'ciudades', component: CiudadComponent },
+          { path: 'productosSucursales', component: ProductosSucursalesComponent },
           { path: 'ordenes', component: OrdenesComponent },
         ]
       }

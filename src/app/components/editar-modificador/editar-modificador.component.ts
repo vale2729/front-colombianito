@@ -35,7 +35,9 @@ export class EditarModificadorComponent implements OnInit {
   crearFormulario() {
     this.formulario = this.formBuilder.group({
       modificador: ['', [Validators.required]],
-      producto: ['', [Validators.required]]
+      direccion_orden: ['', [Validators.required]],
+      pago_orden: ['', [Validators.required]],
+      
     })
   }
 

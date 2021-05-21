@@ -5,6 +5,7 @@ import { ProductosService } from 'src/app/services/productos/productos.service';
 import { ModalComponent } from '../modal/modal.component';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 
 @Component({
   selector: 'app-registro-productos',
@@ -12,23 +13,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registro-productos.component.scss']
 })
 export class RegistroProductosComponent implements OnInit {
-  
   categorias : any= [];
-  rproducto: any = [];
-  
+  sucursales:any= [];
+  rproducto: any = {};
   formulario: FormGroup;
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal,  private _productoService1 : ProductosService, private _categoriaService : CategoriasService,
-  private ruta: Router, private formBuilder : FormBuilder) {
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal,  private _productoService1 : ProductosService, private _categoriaService : CategoriasService, private _SucursalesService : SucursalService,  private ruta: Router, private formBuilder : FormBuilder) {
       this.formulario = new FormGroup({});
       this.crearFormulario();
   }
-
   ngOnInit(): void {
     this._categoriaService.getCategorias().subscribe(data => {
       this.categorias=data;
     })
+   /* para cargar sucursales 
+    this._sucursalService.getSucursales().subscribe(data => {
+      this.sucursales=data;
+    })*/
   }
+
   crearFormulario(){
     this.formulario = this.formBuilder.group({
       categoria_Producto : ['',[Validators.required]],
@@ -36,21 +39,24 @@ export class RegistroProductosComponent implements OnInit {
       descripcion_Producto : ['', [Validators.required]],
       precio_Producto : ['', [Validators.required]],
       img_Producto : ['', [Validators.required]],
+     // sucursal_Producto:['', [Validators.required]],
       estado_Producto : ['', [Validators.required]],
+
     })
   }
 
   insertar() {
     this.rproducto = {
-      categoria_Producto: this.formulario.value.categoria_Producto,
-      nombre_Producto:this.formulario.value.nombre_Producto,
-      descripcion_Producto:this.formulario.value.descripcion_Producto,
-      precio_Producto:this.formulario.value.precio_Producto,
-      img_Producto:this.formulario.value.img_Producto,
-      estado_Producto:this.formulario.value.estado_Producto
+      categoria: this.formulario.value.categoria_Producto,
+      nombre:this.formulario.value.nombre_Producto,
+      descripcion:this.formulario.value.descripcion_Producto,
+      precio:this.formulario.value.precio_Producto,
+      img:this.formulario.value.img_Producto,
+      //sucursal:this.formulario.value.sucursal_Producto,
+      estado:this.formulario.value.estado_Producto
     };
-
-    this._productoService1.setProductos(this.rproducto).subscribe(data => {
+  console.log(this.formulario);
+    this._productoService1.setProducto(this.rproducto).subscribe(data => {
       this.rproducto = data;
       console.log(this.rproducto);
       if (this.rproducto === 1) {
@@ -68,11 +74,11 @@ export class RegistroProductosComponent implements OnInit {
         modal.componentInstance.name = 'El producto no se pudo registrar, intentalo de nuevo';
       }
     })
-
   }
   redirectTo(uri: string) {
     this.ruta.navigateByUrl('/', { skipLocationChange: true }).then(() =>
       this.ruta.navigate([uri]));
+      console.log(this.ruta);
   }
 
 }

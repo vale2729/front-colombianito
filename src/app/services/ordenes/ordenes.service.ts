@@ -9,10 +9,15 @@ import { Orden } from 'src/app/interfaces/orden';
 })
 export class OrdenesService {
  ruta = (environment.api)+'getOrdenes';
+ rutaUpdateVerOrdenes = (environment.api) + 'updateVerOrdenes';
 
   constructor(private http:HttpClient) { }
 
   getOrdenes() : Observable<Orden>{
     return this.http.get<Orden>(this.ruta);
+  }
+
+   updateVerOrdenes(verOrden: any) {
+    return this.http.post(this.rutaUpdateVerOrdenes, verOrden);
   }
 }

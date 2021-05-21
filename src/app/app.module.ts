@@ -49,6 +49,9 @@ import { EditarUserSucursalComponent } from './components/editar-user-sucursal/e
 import { EditarAdminComponent } from './components/editar-admin/editar-admin.component';
 import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
+import { VerOrdenesComponent } from './components/ver-ordenes/ver-ordenes.component';
+import { ProductosSucursalesComponent } from './components/productos-sucursales/productos-sucursales.component';
+import { EstadoProductoSucursalesComponent } from './components/estado-producto-sucursales/estado-producto-sucursales.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +99,9 @@ import { EditarProductosComponent } from './components/editar-productos/editar-p
     EditarAdminComponent,
     ModalDeleteComponent,
     EditarProductosComponent,
+    VerOrdenesComponent,
+    ProductosSucursalesComponent,
+    EstadoProductoSucursalesComponent,
   ],
   imports: [
     BrowserModule,

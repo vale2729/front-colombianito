@@ -3,9 +3,6 @@
         <div class="col-6">
             <h3><b>Ordenes</b></h3>
         </div>
-        <div class="col-6 text-right pb-3">
-            <a class="btn btn-success botonproduct mb-1"> Agregar</a><br>
-        </div>
     </div>
     <table class="table table-bordered tabla">
         <thead>
@@ -13,9 +10,9 @@
                 <th scope="col">Cliente</th>
                 <th scope="col">Dirreción</th>
                 <th scope="col">Pago</th>
-                <th scope='col'>Completado</th>
+                <th scope='col'>Estado</th>
                 <th scope='col'>Productos</th>
-                <th scope='col'>Adiciones</th>
+                <th scope='col'>Adicionales</th>
                 <th scope='col'>Acciones</th>
             </tr>
         </thead>
@@ -24,13 +21,11 @@
                 <th scope="row">{{orden.cliente}}</th>
                 <td>{{ orden.direccion }}</td>
                 <td>{{ orden.pago}}</td>
-                <td>{{ orden.completado}}</td>
-                <td>{{ orden.productos}}</td>
-                <td>{{ orden.adiciones}}</td>
+                <td>{{ orden.estado}}</td>
+                <td>{{ orden.producto}}</td>
+                <td>{{ orden.modificadores}}</td>
                 <td>
-                    <a class="btn btn-success boton"> Agregar</a>
-                    <a class="btn btn-warning boton"> Editar</a>
-                    <a class="btn btn-danger boton"> Eliminar</a>
+                    <a class="btn btn-success botonproduct mb-1" (click)="EditarEstadoOrden(orden.id_orden)">Estado de la orden</a><br>
                 </td>
             </tr>
         </tbody>
