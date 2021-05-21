@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-ch',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    //const modal = this.modalService.open(ModalInicioComponent, { size: 'md'});
   }
 
 }

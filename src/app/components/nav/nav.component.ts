@@ -28,14 +28,11 @@ export class NavComponent implements OnInit {
     this.title.setTitle('El colombianito');
     this._login.getLoggedInName.subscribe(name => this.changeName(name));
     if (this._login.isLoggedIn()) {
-      console.log("loggedin");
       this.signedIn = true;
-      console.log(this.signedIn);
     }
     else {
       this.signedIn = false;
     }
-    console.log(this._login.getToken());
   }
 
 

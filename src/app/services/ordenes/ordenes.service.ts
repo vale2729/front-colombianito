@@ -17,7 +17,9 @@ export class OrdenesService {
     return this.http.get<Orden>(this.ruta);
   }
 
-   updateVerOrdenes(verOrden: any) {
+  updateVerOrdenes(verOrden: any) {
     return this.http.post(this.rutaUpdateVerOrdenes, verOrden);
   }
 }
+
+

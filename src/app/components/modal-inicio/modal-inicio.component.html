@@ -1,0 +1,17 @@
+<div class="pt-5">
+    <h4 class="text-center">Colombiano Hambriento</h4>
+</div>
+<div class="modal-body">
+    <div class="m-4">
+        <form [formGroup]="formulario" class="login-form rounded">
+            <select class="form-control" formControlName="ciudad" name="ciudad">
+                <option selected="true" disabled="disabled">Elige una ciudad</option>
+                <option *ngFor="let ciudad of ciudades" value='{{ciudad.id_ciudad}}'>{{ciudad.nombre_ciudad}}</option>
+            </select><br>
+            <div class="text-center">
+                <button class="btn btn-success text-center align-content-center"
+                    (click)="activeModal.dismiss('Cross click')">Continuar</button>
+            </div>
+        </form>
+    </div>
+</div>

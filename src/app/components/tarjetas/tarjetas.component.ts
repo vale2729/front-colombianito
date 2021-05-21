@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs';
-import { Producto } from 'src/app/interfaces/producto';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 import { CarritoComponent } from '../carrito/carrito.component';
 
@@ -10,10 +8,11 @@ import { CarritoComponent } from '../carrito/carrito.component';
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.scss']
 })
-export class TarjetasComponent implements OnInit {
+export class TarjetasComponent implements OnInit, OnChanges {
+  @Input() categoria: number = 0;
   productos : any = [];
-  producto = {};
-  
+  productoCategoria : any = [];
+
   constructor(private _productoservice : ProductosService, private modalService: NgbModal) {  
   }
 
@@ -23,7 +22,18 @@ export class TarjetasComponent implements OnInit {
     })
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.categoria);
+    this._productoservice.getProductos().subscribe(data => {
+      this.productos = data;
+      this.productoCategoria = this.productos.filter((element: { categoria: number; }) => element.categoria === this.categoria);
+      console.log(this.productoCategoria);
+      this.productos = this.productoCategoria;
+    })
+  }
+
   carrito(){
+
 
     const modal = this.modalService.open(CarritoComponent, { size: 'xl'});
     modal.componentInstance.nombre = 'Hamburguesa';

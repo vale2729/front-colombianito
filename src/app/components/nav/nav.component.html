@@ -34,7 +34,7 @@
 
         <button class="btn btn-danger my-2" routerLink='ch/login' *ngIf="!signedIn" routerLinkActive="active">Iniciar sesión</button>
         <button class="btn btn-danger my-2" (click)="logout()" *ngIf="signedIn">Cerrar sesión</button>
-        <button class="btn btn-danger my-2 ml-4" routerLink='ch/registro' routerLinkActive="active">Registrarse</button>
+        <button class="btn btn-danger my-2 ml-4" routerLink='ch/registro' *ngIf="!signedIn" routerLinkActive="active">Registrarse</button>
 
     </div>
 </nav>

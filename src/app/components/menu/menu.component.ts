@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
@@ -9,11 +10,20 @@ import { CarritoComponent } from '../carrito/carrito.component';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  categoria : number = 0;
+  categorias : any = [];
+
+  constructor(private _categoriaService : CategoriasService) { }
 
   ngOnInit(): void {
+    this._categoriaService.getCategorias().subscribe(data => {
+      this.categorias = data;
+    })
   }
 
+  cambiar(id : number){
+    this.categoria = id;
+  }
   
 
 }
