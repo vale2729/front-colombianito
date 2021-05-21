@@ -46,7 +46,6 @@ export class EditarModificadorComponent implements OnInit {
       this.modificadores = data;
       this.modificadorConsultado = this.modificadores.filter((element: { id_modificador: string; }) =>
         element.id_modificador === this.id_modificador);
-
       this.formulario = this.formBuilder.group({
         modificador: [this.modificadorConsultado[0].modificador, [Validators.required]],
         producto: [this.modificadorConsultado[0].producto, [Validators.required]]

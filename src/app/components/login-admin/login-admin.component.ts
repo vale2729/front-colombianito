@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -11,27 +12,38 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class LoginAdminComponent implements OnInit {
 
-  user : string = '';
-  clave: string = '';
-  user1 : any = {};
 
-  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta : Router) { }
+  user : any = {};
+
+  formulario : FormGroup;
+
+  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta : Router, 
+    private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+     }
 
   ngOnInit(): void {
   }
 
-  loginadmin(){
-    this.user1 = { usuario: this.user, clave: this.clave };
-    console.log(this.user1);
-    this._loginservice.loginAdmin(this.user1).subscribe(data => {
-      console.log(data);
-      if (Object.keys(data).length > 0){
-        this.ruta.navigate(['admin/inicio-admin']);
-      }else{
-        const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario no se encuentra registrado';
-      }
-    });
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      user : ['',[Validators.required]],
+      clave : ['',[Validators.required]]
+    })
+  }
+
+  loginAdmin() {
+    this.user = {
+      usuario: this.formulario.value.user,
+      clave: this.formulario.value.clave
+    };
+    if (this._loginservice.userLoginAdmin(this.user)) {
+      this.ruta.navigate(['admin/inicio-admin']);
+      //window.location.href = "/ch/menu";
+    } else {
+      alert('El usuario no se encuentra registrado');
+    }
   }
 
 

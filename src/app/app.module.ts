@@ -111,7 +111,8 @@ import { EstadoProductoSucursalesComponent } from './components/estado-producto-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

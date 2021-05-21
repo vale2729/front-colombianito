@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -11,27 +12,38 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class LoginSucursalComponent implements OnInit {
 
-  user : string = '';
-  clave: string = '';
-  user1 : any = {};
+  user : any = {};
 
-  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta : Router) { }
+  formulario : FormGroup;
+
+  constructor(private _loginservice: LoginService, private modalService: NgbModal, private ruta : Router, 
+    private formBuilder : FormBuilder) {
+      this.formulario = new FormGroup({});
+      this.crearFormulario();
+     }
 
   ngOnInit(): void {
   }
 
-  loginsucursal(){
-    this.user1 = { usuario: this.user, clave: this.clave };
+  crearFormulario(){
+    this.formulario = this.formBuilder.group({
+      user : ['',[Validators.required]],
+      clave : ['', [Validators.required]]
+    })
+  }
 
-    this._loginservice.loginSucursal(this.user1).subscribe(data => {
-      console.log(data);
-      if (Object.keys(data).length > 0){
-        this.ruta.navigate(['sucursal/inicio-sucursal']);
-      }else{
-        const modal = this.modalService.open(ModalComponent);
-        modal.componentInstance.name = 'El usuario no se encuentra registrado';
-      }
-    });
+  loginSucursal() {
+    this.user = {
+      usuario: this.formulario.value.user,
+      clave: this.formulario.value.clave
+    };
+    if (this._loginservice.userLoginAdmin(this.user)) {
+      this.ruta.navigate(['sucursal/inicio-sucursal']);
+      
+      //window.location.href = "/ch/menu";
+    } else {
+      alert('El usuario no se encuentra registrado');
+    }
   }
 
 }

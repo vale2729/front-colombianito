@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-nav-sucursal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavSucursalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loginservice: LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this._loginservice.deleteToken();
+    window.location.href = "/sucursal";
   }
 
 }

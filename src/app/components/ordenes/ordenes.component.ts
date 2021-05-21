@@ -23,9 +23,7 @@ const COUNTRIES: Country[] = [
     flag: 'f/f3/Flag_of_Russia.svg',
     area: 17075200,
     population: 146989754
-  },
-  
-];
+  }];
 
 
 @Component({

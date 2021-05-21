@@ -24,6 +24,8 @@ import { UsuariosSucursalComponent } from './components/usuarios-sucursal/usuari
 import { PagoComponent } from './components/pago/pago.component';
 import { ModificadoresComponent } from './components/modificadores/modificadores.component';
 import { ProductosSucursalesComponent } from './components/productos-sucursales/productos-sucursales.component';
+import { AuthguardGuard } from './services/login/authguard.guard';
+import { AuthguardsucursalGuard } from './services/login/authguardsucursal.guard';
 
 
 
@@ -38,7 +40,7 @@ const routes: Routes = [
       { path: 'ch/login', component: LoginComponent },
       { path: 'ch/registro', component: RegistroComponent },
       { path: 'ch/menu/carrito', component: CarritoComponent },
-      { path: 'ch/menu/pago', component: PagoComponent},
+      { path: 'ch/menu/pago', component: PagoComponent, canActivate: [AuthguardGuard]},
     ]
   },
 
@@ -46,14 +48,14 @@ const routes: Routes = [
     path: 'admin', component: LayaoutadminComponent, children: [
       { path: '', component: LoginAdminComponent },
       {
-        path: 'inicio-admin', component: AdminComponent, children: [
-          { path: 'ciudades', component: CiudadComponent },
-          { path: 'sucursales', component: SucursalComponent },
-          { path: 'categorias', component: CategoriasComponent },
-          { path: 'productos', component: ProductosComponent },
-          { path: 'modificadores', component: ModificadoresComponent },
-          { path: 'registroAdmin', component: UsuariosAdminComponent },
-          { path: 'registroSucursales', component: UsuariosSucursalComponent }
+        path: 'inicio-admin', component: AdminComponent,children: [
+        { path: 'ciudades', component: CiudadComponent, canActivate: [AuthguardGuard] },
+        { path: 'sucursales', component: SucursalComponent, canActivate: [AuthguardGuard] },
+        { path: 'categorias', component: CategoriasComponent, canActivate: [AuthguardGuard] },
+        { path: 'productos', component: ProductosComponent, canActivate: [AuthguardGuard] },
+        { path: 'modificadores', component: ModificadoresComponent, canActivate: [AuthguardGuard] },
+        { path: 'registroAdmin', component: UsuariosAdminComponent, canActivate: [AuthguardGuard] },
+        { path: 'registroSucursales', component: UsuariosSucursalComponent, canActivate: [AuthguardGuard] }
         ]
       },
     ]
@@ -70,7 +72,6 @@ const routes: Routes = [
     ]
   }
 ];
-
 
 
 @NgModule({
