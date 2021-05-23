@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProductosService {
 
+  productosAdd : any = [];
+
   ruta = (environment.api)+'getProductos';
   //esta ruta esta ruta es del back debe de ser igual, es de la ruta del api
   rutaSetProducto = (environment.api)+'setProductos';
@@ -26,6 +28,14 @@ export class ProductosService {
   }
   deleteProductos(producto: any) {
     return this.http.post(this.rutDeleteProductos, producto);
+  }
+
+
+  getProductosAdd(){
+    return this.productosAdd;
+  }
+  setProductosAdd(productos : any){
+    this.productosAdd = productos;
   }
 
 }

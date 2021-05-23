@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LoginService } from 'src/app/services/login/login.service';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 import { CarritoComponent } from '../carrito/carrito.component';
 
@@ -13,7 +14,9 @@ export class TarjetasComponent implements OnInit, OnChanges {
   productos : any = [];
   productoCategoria : any = [];
 
-  constructor(private _productoservice : ProductosService, private modalService: NgbModal) {  
+  productosAdd : any = [];
+
+  constructor(private _productoservice : ProductosService, private modalService: NgbModal, private _loginservice: LoginService) {  
   }
 
   ngOnInit(): void {
@@ -27,17 +30,28 @@ export class TarjetasComponent implements OnInit, OnChanges {
     this._productoservice.getProductos().subscribe(data => {
       this.productos = data;
       this.productoCategoria = this.productos.filter((element: { categoria: number; }) => element.categoria === this.categoria);
-      console.log(this.productoCategoria);
       this.productos = this.productoCategoria;
     })
   }
 
-  carrito(){
+  carrito(id : number, nombre : string, precio : number, foto : string){
+    this.productosAdd = this._productoservice.getProductosAdd();
+    this.productosAdd.push({
+      id_producto : id,
+      nombre: nombre,
+      precio: precio,
+      img: foto
+    });
+    this._productoservice.setProductosAdd(this.productosAdd);
+    if (this._loginservice.isLoggedIn()) {
+      
+    }
+    else {
 
+    }
 
     const modal = this.modalService.open(CarritoComponent, { size: 'xl'});
-    modal.componentInstance.nombre = 'Hamburguesa';
-    modal.componentInstance.precio = '12.000';
+    modal.componentInstance.productosAdd = this.productosAdd;
   }
 
 }

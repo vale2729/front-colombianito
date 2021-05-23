@@ -11,7 +11,7 @@ export class LoginService {
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   redirectUrl: string = '';
-  nombreSucursal : string = '';
+  idSucursal : string = '';
 
   ruta = (environment.api) + 'login';
   rutaAdmin = (environment.api) + 'loginAdmin';
@@ -37,7 +37,7 @@ export class LoginService {
   public userLoginAdmin(user: any) {
     return this.http.post<any>(this.rutaAdmin, user).subscribe(data => {
       if (Object.keys(data).length > 0) {
-        this.setToken(data[0].nombre);
+        this.setToken(data[0].id_usuario);
         this.getLoggedInName.emit(true);
         console.log(this.getLoggedInName);
         return true;
@@ -50,8 +50,8 @@ export class LoginService {
   public userLoginSucursal(user: any) {
     return this.http.post<any>(this.rutaSucursal, user).subscribe(data => {
       if (Object.keys(data).length > 0) {
-        this.nombreSucursal = data[0].sucursal;
-        this.setToken(data[0].nombre);
+        this.idSucursal = data[0].id_administrador;
+        this.setToken(data[0].id_administrador);
         this.getLoggedInName.emit(true);
         console.log(this.getLoggedInName);
         return true;
@@ -64,7 +64,7 @@ export class LoginService {
   public userlogin(user: any) {
     return this.http.post<any>(this.ruta, user).subscribe(data => {
       if (Object.keys(data).length > 0) {
-        this.setToken(data[0].nombre);
+        this.setToken(data[0].id_usuario);
         this.getLoggedInName.emit(true);
         console.log(this.getLoggedInName);
         return true;

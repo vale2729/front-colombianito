@@ -19,7 +19,6 @@ export class InicioComponent implements OnInit {
     config.pauseOnHover = false;
   }
   ngOnInit(): void {
-    console.log('holi');
     this.ruta.navigate(['']);
   }
   

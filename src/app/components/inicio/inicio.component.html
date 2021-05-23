@@ -1,30 +1,46 @@
-<div class="contenedor pt-4">
+<div class="row py-4 pt-5 m-0">
+  <div class="col-sm-12 col-md-12 col-lg-8">
     <div class="Carrusel">
-        <ngb-carousel #carousel [interval]="1000">
-          <ng-template ngbSlide *ngFor="let img of images; index as i">
-            <div class="carousel-caption">
+      <ngb-carousel #carousel [interval]="3000">
+        <ng-template ngbSlide *ngFor="let img of images; index as i">
+          <div class="carousel-caption">
+          </div>
+          <a href="/assets/Carrucel/+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+            <div class="picsum-img-wrapper">
+              <img class="img-fluid" [src]="img" alt="My image {{i + 1}} description">
             </div>
-            <a href="/assets/Carrucel/+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
-              <div class="picsum-img-wrapper">
-                <img [src]="img" alt="My image {{i + 1}} description">
-              </div>
-            </a>
-          </ng-template>
-        </ngb-carousel>
-
-        <div class="text-justify">
-          <h2>BIENVENIDOS A NUESTRO RESTAURANTE EL COLOMBIANO HAMBRIENTO</h2>
-          <br>
-          <h4>Es un placer darle la bienvenida a nuestro restaurante, esperomos que aqui pueda calmar todos sus antojitos.
-            <br><br>
-            Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32
-            <br><br>
-            El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H. Rackham.
-
-          </h4>
-          <br>
-        </div>
-
+          </a>
+        </ng-template>
+      </ngb-carousel>
     </div>
-    
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-3 mr-3">
+    <h1><b>Ordena tu comida favorita</b></h1><br>
+    <p>Bienvenidos a nuestro restaurante el colombiano hambriento</p>
+    <p>Es un placer darle la bienvenida a nuestro restaurante, esperomos que aqui pueda calmar todos sus antojitos.
+      Desde humildes comienzos hasta chefs de clase mundial, conozca a las personas detrás del menú de Colombiano
+      Hambriento
+      que se unen a nuestros dietistas para brindar innovación y calidad a nuestra comida.
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row m-0 justify-content-md-center align-content-center pt-5">
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <img class="imagen img-fluid" src="./assets/burger2.jpg"><br><br>
+      <h3>Carne de vaca</h3>
+      <p>Nuestras hamburguesas son empanadas de carne 100% real que no tienen rellenos, aditivos
+        ni conservantes. Y nuestro método especial de dorar los hace calientes y jugosos. </p>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <img class="imagen img-fluid" src="./assets/papas.jpg"><br><br>
+      <h3>Papas</h3>
+      <p>Nuestras Papas comienzan con papas de calidad y eso produce un sabor superior.
+         Una ventaja adicional es que tienen cero gramos de grasas trans por porción etiquetada.  </p>
+    </div>
+  </div>
+  <br><br>
+  <img class="img-fluid imagen1" src="./assets/inicio.jpg"><br>
+
 </div>

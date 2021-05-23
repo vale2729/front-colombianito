@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,10 +11,10 @@ import { CarritoComponent } from '../carrito/carrito.component';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnChanges {
 
-  signedIn: boolean | undefined;
-  
+  //signedIn: boolean | undefined;
+  @Input() signedIn : boolean = false;
 
   constructor(private title: Title, private _login: LoginService, private modalService: NgbModal,
     public ruta: Router) {
@@ -33,6 +33,11 @@ export class NavComponent implements OnInit {
     else {
       this.signedIn = false;
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    console.log('entre nav'); 
   }
 
 

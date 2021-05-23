@@ -16,7 +16,7 @@ export class ModificadoresService {
 
   constructor(private http: HttpClient) { }
 
-  getModificador(): Observable<Modificador> {
+  getModificador(): Observable<Modificador>{
     return this.http.get<Modificador>(this.ruta);
   }
 
