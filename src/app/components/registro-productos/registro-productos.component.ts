@@ -50,7 +50,7 @@ export class RegistroProductosComponent implements OnInit {
       nombre:this.formulario.value.nombre_Producto,
       descripcion:this.formulario.value.descripcion_Producto,
       precio:this.formulario.value.precio_Producto,
-      img:this.formulario.value.img_Producto,
+      img:'assets/',
       sucursal:this.formulario.value.sucursal_Producto,
       estado:this.formulario.value.estado_Producto
     };
