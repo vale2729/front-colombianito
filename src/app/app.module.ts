@@ -49,10 +49,10 @@ import { EditarUserSucursalComponent } from './components/editar-user-sucursal/e
 import { EditarAdminComponent } from './components/editar-admin/editar-admin.component';
 import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 import { EditarProductosComponent } from './components/editar-productos/editar-productos.component';
-import { VerOrdenesComponent } from './components/ver-ordenes/ver-ordenes.component';
 import { ProductosSucursalesComponent } from './components/productos-sucursales/productos-sucursales.component';
 import { EstadoProductoSucursalesComponent } from './components/estado-producto-sucursales/estado-producto-sucursales.component';
 import { ModalInicioComponent } from './components/modal-inicio/modal-inicio.component';
+import { VerOrdenComponent } from './components/ver-orden/ver-orden.component';
 
 @NgModule({
   declarations: [
@@ -100,10 +100,10 @@ import { ModalInicioComponent } from './components/modal-inicio/modal-inicio.com
     EditarAdminComponent,
     ModalDeleteComponent,
     EditarProductosComponent,
-    VerOrdenesComponent,
     ProductosSucursalesComponent,
     EstadoProductoSucursalesComponent,
     ModalInicioComponent,
+    VerOrdenComponent,
   ],
   imports: [
     BrowserModule,

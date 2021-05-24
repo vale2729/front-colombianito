@@ -64,6 +64,7 @@ export class LoginService {
   public userlogin(user: any) {
     return this.http.post<any>(this.ruta, user).subscribe(data => {
       if (Object.keys(data).length > 0) {
+        alert('entre');
         this.setToken(data[0].id_usuario);
         this.getLoggedInName.emit(true);
         console.log(this.getLoggedInName);

@@ -26,8 +26,8 @@
                 <td>{{ producto.nombre}}</td>
                 <td>{{ producto.descripcion}}</td>
                 <td><img src="{{producto.img}}" class="rounded" alt="" width="150px" height="100px"/></td>
-                <td> pendiente hacer esta parte</td>
                 <td>{{ producto.estado}}</td>
+                <td> {{ producto.nombre_categoria}}</td>
                 <td>
                     <a class="btn btn-warning botonproduct mb-1" (click)="editarProducto(producto.id_producto)"> Editar</a><br>
                     <a class="btn btn-danger botonproduct" (click)="eliminarProducto(producto.id_producto)"> Eliminar</a>

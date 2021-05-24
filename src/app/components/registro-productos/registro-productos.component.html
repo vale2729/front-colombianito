@@ -7,9 +7,9 @@
 <div class="modal-body">
     <div class="m-4">
         <form [formGroup]="formulario" class="login-form rounded was-validated" >
-            <p>Ingresar los datos:</p>
-            <select class="form-control" formControlName="categoria_Producto" name="ciudad">
-                <option >Elige una categoria</option>
+            <p>Ingresar los datos de los productos:</p>
+            <option >Elige una categoria</option>
+            <select class="form-control" formControlName="categoria_Producto">
                 <option *ngFor="let categoria of categorias" value="{{categoria.id_categoria}}">{{categoria.nombre_categoria}}</option>
             </select><br>
 
@@ -18,15 +18,15 @@
             <input type="text" class="forms rounded form-control" required="true" placeholder="Descripción"  formControlName="descripcion_Producto" /><br>
             <input type="text" class="forms rounded form-control" required="true" placeholder="Precio"formControlName="precio_Producto" /><br>
             <!-- CARGAR FOTOS -->
-            <input src="../assets/" type="file" class="form-control" formControlName="img_Producto" name="foto"><br>
-
-            <!--    para sucursales 
-                <option *ngFor="let sucursal of sucursales" value="{{sucursal.id_categoria}}">{{sucursal.nombre_categoria}}</option>-->
-
+            <input src="" type="file" class="form-control" formControlName="img_Producto" name="foto"><br>
+            <option >Elige una la sucursal</option>
+            <select class="form-control" formControlName="sucursal_Producto">
+                <option *ngFor="let sucursal of sucursales" value="{{sucursal.id_sucursal}}">{{sucursal.nombre_sucursal}}</option>
+            </select><br>
+            <option selected>Elige un estado al producto</option>
             <select class="form-control" formControlName="estado_Producto">
-                <option selected>Elige un estado</option>
-                <option value="1">Activo</option>
-                <option value="1">Desactivo</option>
+                <option>Activo</option>
+                <option>Desactivo</option>
             </select><br>
             <button class="btn btn-success" (click)="insertar()">Registrar</button>
         </form>

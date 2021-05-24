@@ -50,7 +50,7 @@ export class ModificadoresComponent implements OnInit {
   eliminarModificador(id:number){
     console.log(id);
     const modal = this.modalService.open(ModalDeleteComponent, { size: 'md'});
-    modal.componentInstance.mensaje = '¿Desea eliminar este modificador';
+    modal.componentInstance.mensaje = '¿Desea eliminar este modificador?';
     modal.componentInstance.id = id;
     modal.componentInstance.tabla = 'modificadores';
   }

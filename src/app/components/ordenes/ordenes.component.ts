@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { OrdenesService } from 'src/app/services/ordenes/ordenes.service';
 import { LoginService } from 'src/app/services/login/login.service';
-import { VerOrdenesComponent } from '../ver-ordenes/ver-ordenes.component';
+import { VerOrdenComponent } from '../ver-orden/ver-orden.component';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -58,7 +58,7 @@ export class OrdenesComponent implements OnInit {
   }
    EditarEstadoOrden(id:number){
     console.log(id);
-    const modal = this.modalService.open(VerOrdenesComponent, {size: 'md'});
+    const modal = this.modalService.open(VerOrdenComponent, {size: 'md'});
     modal.componentInstance.id_orden = id;
   }
 

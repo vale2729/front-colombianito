@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrdenesService } from 'src/app/services/ordenes/ordenes.service';
+import { Router } from '@angular/router';
 import { ModalComponent } from '../modal/modal.component';
 
-
-
-
 @Component({
-  selector: 'app-ver-ordenes',
-  templateUrl: './ver-ordenes.component.html',
-  styleUrls: ['./ver-ordenes.component.scss']
+  selector: 'app-ver-orden',
+  templateUrl: './ver-orden.component.html',
+  styleUrls: ['./ver-orden.component.scss']
 })
-export class VerOrdenesComponent implements OnInit {
+export class VerOrdenComponent implements OnInit {
 
-  id_Orden: string = '';
+  id_orden: string = '';
   // aqui veo todo 
   verOrdenenes: any = [];
   // esta es solo pa que la consulto
@@ -34,16 +31,14 @@ export class VerOrdenesComponent implements OnInit {
   ngOnInit(): void {
     this.consultarOrdenes();
   }
-
   crearFormulario() {
     this.formulario = this.formBuilder.group({
       // campos que voy son iguales al de html 
       cliente_orden : ['', [Validators.required]],
-      ciudad : ['',[Validators.required]],
       direccion_orden: ['',[Validators.required]],
+      telefono_orden: ['', [Validators.required]],
       pago_orden: ['',[Validators.required]],
       estado_orden: ['',[Validators.required]],
-      producto_orden : ['', [Validators.required]],
       modificadores_orden: ['',[Validators.required]],
       Sucursal_orden: ['',[Validators.required]]
     });
@@ -52,35 +47,32 @@ export class VerOrdenesComponent implements OnInit {
   consultarOrdenes() {
     this._ordenService.getOrdenes().subscribe(data => {
       this.verOrdenenes = data;
-      this.OrdenConsultada = this.verOrdenenes.filter((element: {	id_orden: string; }) => element.id_orden == this.id_Orden);
-
+      this.OrdenConsultada = this.verOrdenenes.filter((element: {	id_orden: string; }) => element.id_orden == this.id_orden);
       this.formulario = this.formBuilder.group({
-        // llena los campos son los de html 
+        // llena los campos son los de html
        cliente_orden: [this.OrdenConsultada[0].cliente, [Validators.required]],
        direccion_orden: [this.OrdenConsultada[0].direccion, [Validators.required]],
+       telefono_orden: [this.OrdenConsultada[0].telefono, [Validators.required]],
        pago_orden: [this.OrdenConsultada[0].pago, [Validators.required]],
        estado_orden: [this.OrdenConsultada[0].estado, [Validators.required]],
-       producto_orden: [this.OrdenConsultada[0].producto, [Validators.required]],
        modificadores_orden: [this.OrdenConsultada[0].modificadores, [Validators.required]],
        Sucursal_orden: [this.OrdenConsultada[0].sucursal, [Validators.required]]
       });
     });
   }
-
-
   actualizarOrden() {
     this.ordenFinal = {
       // aqui guardo basa de datos igual a la base de datos
-      id_orden: this.OrdenConsultada[0].id_Orden,
+      id_orden: this.OrdenConsultada[0].id_orden,
       cliente: this.formulario.value.cliente_orden,
       direccion:this.formulario.value.direccion_orden,
+      telefono:this.formulario.value.telefono_orden,
       pago: this.formulario.value.pago_orden,
       estado: this.formulario.value.estado_orden,
-      producto:this.formulario.value.producto_orden,
       modificadores:this.formulario.value.modificadores_orden,
       sucursal:this.formulario.value.Sucursal_orden
     };
-    console.log(this.ordenFinal);
+    console.log("hola", this.ordenFinal);
     this._ordenService.updateVerOrdenes(this.ordenFinal).subscribe(data => {
       this.ordenFinal = data;
       console.log(this.ordenFinal);
@@ -93,13 +85,11 @@ export class VerOrdenesComponent implements OnInit {
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La orden se actualizo con exito';
         this.redirectTo('/sucursal/inicio-sucursal/ordenes');
-
       } else {
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'La orden no se pudo editar, intentalo de nuevo';
       }
     })
-
   }
 
   redirectTo(uri: string) {

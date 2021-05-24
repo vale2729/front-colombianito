@@ -26,10 +26,9 @@ export class RegistroProductosComponent implements OnInit {
     this._categoriaService.getCategorias().subscribe(data => {
       this.categorias=data;
     })
-   /* para cargar sucursales 
-    this._sucursalService.getSucursales().subscribe(data => {
+    this._SucursalesService.getSucursales().subscribe(data => {
       this.sucursales=data;
-    })*/
+    })
   }
 
   crearFormulario(){
@@ -39,7 +38,7 @@ export class RegistroProductosComponent implements OnInit {
       descripcion_Producto : ['', [Validators.required]],
       precio_Producto : ['', [Validators.required]],
       img_Producto : ['', [Validators.required]],
-     // sucursal_Producto:['', [Validators.required]],
+      sucursal_Producto:['', [Validators.required]],
       estado_Producto : ['', [Validators.required]],
 
     })
@@ -52,7 +51,7 @@ export class RegistroProductosComponent implements OnInit {
       descripcion:this.formulario.value.descripcion_Producto,
       precio:this.formulario.value.precio_Producto,
       img:this.formulario.value.img_Producto,
-      //sucursal:this.formulario.value.sucursal_Producto,
+      sucursal:this.formulario.value.sucursal_Producto,
       estado:this.formulario.value.estado_Producto
     };
   console.log(this.formulario);

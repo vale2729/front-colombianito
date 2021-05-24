@@ -49,7 +49,7 @@ export class ProductosComponent implements OnInit {
   eliminarProducto(id:number){
     console.log(id);
     const modal = this.modalService.open(ModalDeleteComponent, { size: 'md'});
-    modal.componentInstance.mensaje = '¿Desea eliminar este Producto?';
+    modal.componentInstance.mensaje = '¿Desea eliminar este producto?';
     modal.componentInstance.id = id;
     modal.componentInstance.tabla = 'productos';
   }

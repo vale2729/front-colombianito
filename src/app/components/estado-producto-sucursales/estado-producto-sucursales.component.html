@@ -1,1 +1,38 @@
-<p>estado-producto-sucursales works!</p>
+<div class="modal-header">
+    <h4 class="modal-title">Colombiano Hambriento</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="m-4">
+        <form [formGroup]="formulario" class="login-form rounded">
+            <p>Cambiar estado del producto:</p>
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="Categoria" formControlName="categoria_Producto"/><br>
+
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="Nombre del producto" formControlName="nombre_Producto"/><br>
+
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="Descripcion del producto" formControlName="description_Producto"/><br>
+
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="Precio del producto" formControlName="precio_Producto"/><br>
+                
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="Imagen del producto" formControlName="img_Producto"/><br>
+
+                <input type="text" class="forms rounded form-control" required="true"
+                placeholder="sucursal" formControlName="sucursal_Producto"/><br> 
+
+                <option selected>Elige un estado al producto</option>
+                <select class="form-control" formControlName="estado_Producto">
+                    <option>Activo</option>
+                    <option>Desactivo</option>
+                </select><br> 
+                
+            <button class="btn btn-success" (click)="editar()">Actualizar</button>
+        </form>
+    </div>
+</div>

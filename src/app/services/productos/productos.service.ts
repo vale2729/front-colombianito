@@ -15,6 +15,7 @@ export class ProductosService {
   //esta ruta esta ruta es del back debe de ser igual, es de la ruta del api
   rutaSetProducto = (environment.api)+'setProductos';
   rutDeleteProductos = (environment.api)+'deleteProductos';
+  rutaupdateProductos = (environment.api)+'updateProductos';
 
   constructor(private http:HttpClient) { }
 
@@ -26,6 +27,11 @@ export class ProductosService {
   setProducto(producto: any) {
     return this.http.post(this.rutaSetProducto, producto);
   }
+
+  updateProductos(producto: any) {
+    return this.http.post(this.rutaupdateProductos, producto);
+  } 
+
   deleteProductos(producto: any) {
     return this.http.post(this.rutDeleteProductos, producto);
   }
