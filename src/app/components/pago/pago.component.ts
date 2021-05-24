@@ -78,6 +78,7 @@ export class PagoComponent implements OnInit {
         if (Object.keys(this.productoOrden).length > 2) {
           const modal = this.modalService.open(ModalComponent);
           modal.componentInstance.name = 'La orden se creo con exito';
+          this._productoservice.setProductosAdd([]);
           this.ruta.navigate(['']);
         } else {
           const modal = this.modalService.open(ModalComponent);
