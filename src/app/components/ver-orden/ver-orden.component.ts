@@ -69,7 +69,6 @@ export class VerOrdenComponent implements OnInit {
       telefono:this.formulario.value.telefono_orden,
       pago: this.formulario.value.pago_orden,
       estado: this.formulario.value.estado_orden,
-      modificadores:this.formulario.value.modificadores_orden,
       sucursal:this.formulario.value.Sucursal_orden
     };
     console.log("hola", this.ordenFinal);

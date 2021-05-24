@@ -88,7 +88,7 @@ export class EstadoProductoSucursalesComponent implements OnInit {
         this.activeModal.close();
         const modal = this.modalService.open(ModalComponent);
         modal.componentInstance.name = 'El producto se edito con exito';
-        this.redirectTo('admin/inicio-admin/productos');
+        this.redirectTo('sucursal/inicio-sucursal/productosSucursales');
 
       } else {
         const modal = this.modalService.open(ModalComponent);

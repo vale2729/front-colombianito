@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4 class="modal-title">Colombiano Hambriento</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <img class="img-fluid" src='assets/quienessomos1.jpg'><br><br>
+    <h4>Hamburguesa</h4><br>
+    <select class="form-control">
+        <option selected="true" disabled="disabled">Elige un producto</option>
+        <option>Holi</option>
+    </select><br>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="agregarCarrito()">Agregar</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>

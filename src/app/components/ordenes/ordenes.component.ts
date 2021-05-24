@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { OrdenesService } from 'src/app/services/ordenes/ordenes.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { VerOrdenComponent } from '../ver-orden/ver-orden.component';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from '../modal/modal.component';
 
 
 interface Country {
@@ -63,3 +59,6 @@ export class OrdenesComponent implements OnInit {
   }
 
 }
+
+
+

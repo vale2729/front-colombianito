@@ -53,6 +53,8 @@ import { ProductosSucursalesComponent } from './components/productos-sucursales/
 import { EstadoProductoSucursalesComponent } from './components/estado-producto-sucursales/estado-producto-sucursales.component';
 import { ModalInicioComponent } from './components/modal-inicio/modal-inicio.component';
 import { VerOrdenComponent } from './components/ver-orden/ver-orden.component';
+import { ProductoModificadorComponent } from './components/producto-modificador/producto-modificador.component';
+
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { VerOrdenComponent } from './components/ver-orden/ver-orden.component';
     EstadoProductoSucursalesComponent,
     ModalInicioComponent,
     VerOrdenComponent,
+    ProductoModificadorComponent,
   ],
   imports: [
     BrowserModule,

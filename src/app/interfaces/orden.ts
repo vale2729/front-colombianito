@@ -5,5 +5,5 @@ export interface Orden {
     telefono: number;
     pago:number;
     estado:string;
-    modificadores:string;
+    sucursal:number;
 }

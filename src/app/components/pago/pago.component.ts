@@ -55,7 +55,6 @@ export class PagoComponent implements OnInit {
       telefono: this.formulario.value.telefono,
       pago: 'si',
       estado: 'pendiente',
-      modificadores: 6,
       sucursal: 6
     }
 
@@ -67,14 +66,15 @@ export class PagoComponent implements OnInit {
         for (var i = 0; i < this.productosAdd.length; i++) {
           this.productoOrden = {
             id_orden: this.id_orden,
-            producto: this.productosAdd[i].id_producto
+            producto: this.productosAdd[i].id_producto,
+            modificadores: 6
           }
-          console.log(this.productoOrden);
           this._ordenesService.setOrdenProducto(this.productoOrden).subscribe(data => {
             this.productoOrden = data;
+            console.log(this.productoOrden);
           });
         }
-        if (Object.keys(this.productoOrden).length > 0) {
+        if (Object.keys(this.productoOrden).length > 2) {
           const modal = this.modalService.open(ModalComponent);
           modal.componentInstance.name = 'La orden se creo con exito';
           this.ruta.navigate(['']);

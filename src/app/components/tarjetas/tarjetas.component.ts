@@ -2,7 +2,7 @@ import { Component, Input, OnInit, SimpleChanges, OnChanges } from '@angular/cor
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from 'src/app/services/login/login.service';
 import { ProductosService } from 'src/app/services/productos/productos.service';
-import { CarritoComponent } from '../carrito/carrito.component';
+import { ProductoModificadorComponent } from '../producto-modificador/producto-modificador.component';
 
 @Component({
   selector: 'app-tarjetas',
@@ -40,7 +40,7 @@ export class TarjetasComponent implements OnInit, OnChanges {
       id_producto : id,
       nombre: nombre,
       precio: precio,
-      img: foto
+      img: foto,
     });
     this._productoservice.setProductosAdd(this.productosAdd);
     if (this._loginservice.isLoggedIn()) {
@@ -49,9 +49,8 @@ export class TarjetasComponent implements OnInit, OnChanges {
     else {
 
     }
-
-    const modal = this.modalService.open(CarritoComponent, { size: 'xl'});
-    modal.componentInstance.productosAdd = this.productosAdd;
+    const modal = this.modalService.open(ProductoModificadorComponent, { size: 'md'});
+    //modal.componentInstance.productosAdd = this.productosAdd;
   }
 
 }
