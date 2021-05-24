@@ -16,6 +16,8 @@ export class SucursalService {
   rutaUpdateSucursal = (environment.api)+'updateSucursal'
   rutaDeleteSucursal = (environment.api)+'deleteSucursal';
 
+  rutaSucursalCiudad = (environment.api)+'getSucursalCiudad';
+
   constructor(private http:HttpClient) { }
 
   getSucursales() : Observable<Sucursales>{
@@ -32,5 +34,9 @@ export class SucursalService {
 
   deleteSucursal(sucursal: any) {
     return this.http.post(this.rutaDeleteSucursal, sucursal);
+  }
+
+  getSucursalCiudad(sucursal: any){
+    return this.http.post(this.rutaSucursalCiudad, sucursal);
   }
 }

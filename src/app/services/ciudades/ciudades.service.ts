@@ -14,6 +14,8 @@ export class CiudadesService {
   rutaUpdateCiudad = (environment.api)+'updateCiudad';
   rutaDeleteCiudad = (environment.api)+'deleteCiudad';
 
+  ciudadUsuario : number = 0;
+
   constructor(private http:HttpClient) { }
 
   getCiudades() : Observable<Ciudad>{
@@ -30,6 +32,14 @@ export class CiudadesService {
 
   deleteCiudad(ciudad: any) {
     return this.http.post(this.rutaDeleteCiudad, ciudad);
+  }
+
+  getCiudadUsuario() {
+    return this.ciudadUsuario;
+  }
+
+  setCiudadUsuario(ciudad: number){
+    this.ciudadUsuario = ciudad;
   }
 
 

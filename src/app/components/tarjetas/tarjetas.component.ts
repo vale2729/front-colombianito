@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CiudadesService } from 'src/app/services/ciudades/ciudades.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { ProductosService } from 'src/app/services/productos/productos.service';
+import { SucursalService } from 'src/app/services/sucursales/sucursal.service';
 import { ProductoModificadorComponent } from '../producto-modificador/producto-modificador.component';
 
 @Component({
@@ -11,32 +13,39 @@ import { ProductoModificadorComponent } from '../producto-modificador/producto-m
 })
 export class TarjetasComponent implements OnInit, OnChanges {
   @Input() categoria: number = 0;
-  productos : any = [];
-  productoCategoria : any = [];
+  productos: any = [];
+  productoCategoria: any = [];
 
-  
+  sucursal: number = 0;
+  productoConsultado : any= [];
 
-  constructor(private _productoservice : ProductosService, private modalService: NgbModal, private _loginservice: LoginService) {  
+  constructor(private _productoservice: ProductosService, private modalService: NgbModal, private _ciudadService: CiudadesService,
+    private _sucursalService: SucursalService) {
   }
 
   ngOnInit(): void {
+    this.sucursal = this._ciudadService.getCiudadUsuario();
+
     this._productoservice.getProductos().subscribe(data => {
-      this.productos = data
+      this.productos = data;
+      this.productoConsultado = this.productos.filter((element: { sucursal: number; }) => element.sucursal == this.sucursal);
+      this.productoConsultado = this.productoConsultado.filter((element: { estado: string; }) => element.estado == "Activo");
     })
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.categoria);
     this._productoservice.getProductos().subscribe(data => {
       this.productos = data;
-      this.productoCategoria = this.productos.filter((element: { categoria: number; }) => element.categoria === this.categoria);
-      this.productos = this.productoCategoria;
+      this.productoConsultado = this.productos.filter((element: { sucursal: number; }) => element.sucursal == this.sucursal);
+      this.productoConsultado = this.productoConsultado.filter((element: { estado: string; }) => element.estado == "Activo");
+      this.productoConsultado = this.productoConsultado.filter((element: { categoria: number; }) => element.categoria === this.categoria);
+      //this.productos = this.productoCategoria;
     })
   }
 
-  carrito(id : number, nombre : string, precio : number, foto : string){
-    
-    const modal = this.modalService.open(ProductoModificadorComponent, { size: 'md'});
+  carrito(id: number, nombre: string, precio: number, foto: string) {
+
+    const modal = this.modalService.open(ProductoModificadorComponent, { size: 'md' });
     modal.componentInstance.id = id;
     modal.componentInstance.nombre = nombre;
     modal.componentInstance.precio = precio;

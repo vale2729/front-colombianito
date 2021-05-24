@@ -13,17 +13,19 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Pago</th>
                     <th scope='col'>Estado</th>
+                    <th scope='col'>Productos</th>
                     <th scope='col'>Adicionales</th>
                     <th scope='col'>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let orden of ordenes">
-                    <th scope="row">{{orden.cliente}}</th>
+                    <th scope="row">{{orden.nombre}} {{orden.apellidos}}</th>
                     <td>{{ orden.direccion }}</td>
                     <td>{{ orden.telefono}}</td>
                     <td>{{ orden.pago}}</td>
                     <td>{{ orden.estado}}</td>
+                    <td>{{ orden.producto}}</td>
                     <td>{{ orden.modificadores}}</td>
                     <td>
                         <a class="btn btn-success botonproduct mb-1" (click)="EditarEstadoOrden(orden.id_orden)">Estado de la orden</a><br>

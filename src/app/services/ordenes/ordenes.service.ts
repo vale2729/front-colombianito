@@ -12,6 +12,7 @@ export class OrdenesService {
  rutaSetOrden = (environment.api)+'setOrden';
  rutaUpdateVerOrdenes = (environment.api) + 'updateVerOrdenes';
 
+ rutaGetOrdenProducto = (environment.api) + 'getOrdenProducto';
  rutaSetOrdenProducto = (environment.api) + 'setOrdenProducto';
 
   constructor(private http:HttpClient) { }
@@ -26,6 +27,10 @@ export class OrdenesService {
 
   updateVerOrdenes(verOrden: any) {
     return this.http.post(this.rutaUpdateVerOrdenes, verOrden);
+  }
+
+  getOrdenProducto(producto: any) {
+    return this.http.post(this.rutaGetOrdenProducto, producto);
   }
 
   setOrdenProducto(producto: any) {
