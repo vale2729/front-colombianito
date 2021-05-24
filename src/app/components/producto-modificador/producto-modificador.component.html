@@ -5,11 +5,11 @@
     </button>
   </div>
   <div class="modal-body">
-    <img class="img-fluid" src='assets/quienessomos1.jpg'><br><br>
-    <h4>Hamburguesa</h4><br>
-    <select class="form-control">
+    <img class="img-fluid" src='{{foto}}'><br><br>
+    <h4>{{nombre}}</h4><br>
+    <select class="form-control" [formControl]="modificador">
         <option selected="true" disabled="disabled">Elige un producto</option>
-        <option>Holi</option>
+        <option *ngFor="let modificador of modificadorConsultado" value="{{modificador.id_modificador}}">{{modificador.modificador}}</option>
     </select><br>
   </div>
   <div class="modal-footer">

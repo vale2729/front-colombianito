@@ -21,7 +21,8 @@ export class PagoComponent implements OnInit {
     id_producto: 0,
     nombre: '',
     precio: 0,
-    img: ''
+    img: '',
+    modificadores : ''
   }];
   productoOrden: any = [];
   total = 0;
@@ -67,7 +68,7 @@ export class PagoComponent implements OnInit {
           this.productoOrden = {
             id_orden: this.id_orden,
             producto: this.productosAdd[i].id_producto,
-            modificadores: 6
+            modificadores: this.productosAdd[i].modificadores
           }
           this._ordenesService.setOrdenProducto(this.productoOrden).subscribe(data => {
             this.productoOrden = data;

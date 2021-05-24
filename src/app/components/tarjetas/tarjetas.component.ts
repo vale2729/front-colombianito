@@ -14,7 +14,7 @@ export class TarjetasComponent implements OnInit, OnChanges {
   productos : any = [];
   productoCategoria : any = [];
 
-  productosAdd : any = [];
+  
 
   constructor(private _productoservice : ProductosService, private modalService: NgbModal, private _loginservice: LoginService) {  
   }
@@ -35,22 +35,12 @@ export class TarjetasComponent implements OnInit, OnChanges {
   }
 
   carrito(id : number, nombre : string, precio : number, foto : string){
-    this.productosAdd = this._productoservice.getProductosAdd();
-    this.productosAdd.push({
-      id_producto : id,
-      nombre: nombre,
-      precio: precio,
-      img: foto,
-    });
-    this._productoservice.setProductosAdd(this.productosAdd);
-    if (this._loginservice.isLoggedIn()) {
-      
-    }
-    else {
-
-    }
+    
     const modal = this.modalService.open(ProductoModificadorComponent, { size: 'md'});
-    //modal.componentInstance.productosAdd = this.productosAdd;
+    modal.componentInstance.id = id;
+    modal.componentInstance.nombre = nombre;
+    modal.componentInstance.precio = precio;
+    modal.componentInstance.foto = foto;
   }
 
 }
